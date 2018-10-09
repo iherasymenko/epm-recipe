@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>recipe-reactor</artifactId>
+        <groupId>com.epm.recipe</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>recipe-aggregator</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.epm.recipe</groupId>
+            <artifactId>recipe-web-ui</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.epm.recipe</groupId>
+            <artifactId>recipe-services</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.epm.recipe</groupId>
+            <artifactId>recipe-persistence-in-memory</artifactId>
+        </dependency>
+    </dependencies>
+
+
+</project>
