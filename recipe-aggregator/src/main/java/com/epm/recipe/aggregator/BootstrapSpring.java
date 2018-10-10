@@ -10,7 +10,7 @@ public class BootstrapSpring {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext(
                 "/com/epm/recipe/web_ui/context.xml",
-             //   "/com/epm/recipe/service/impl/context.xml",
+                "/com/epm/recipe/service/impl/context.xml",
                 "/com/epm/recipe/persistence/in_memory/context.xml"
         );
         context.getBean(Ui.class).showRecipeOfTheDay();

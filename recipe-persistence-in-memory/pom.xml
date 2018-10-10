@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>recipe-persistence-in-memory</artifactId>
+
     <dependencies>
         <dependency>
             <groupId>com.epm.recipe</groupId>
@@ -25,5 +26,23 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>check-dependencies-usage</id>
+                        <configuration>
+                            <!-- A drawback of Spring XML configuration: static analysis can't determine usages in XML -->
+                            <usedDependencies>
+                                <dependency>org.springframework:spring-context</dependency>
+                            </usedDependencies>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
