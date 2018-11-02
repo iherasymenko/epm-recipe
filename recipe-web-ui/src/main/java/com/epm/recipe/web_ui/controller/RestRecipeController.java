@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Objects;
 import java.util.Optional;
 
 @RestController
@@ -18,7 +19,7 @@ public class RestRecipeController {
     private final RecipeService recipeService;
 
     public RestRecipeController(RecipeService recipeService) {
-        this.recipeService = recipeService;
+        this.recipeService = Objects.requireNonNull(recipeService, "recipeService");
     }
 
     @GetMapping("recipe_of_the_day")

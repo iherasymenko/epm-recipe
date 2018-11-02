@@ -11,10 +11,9 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 class ThymeleafConfiguration {
 
     @Bean
-    SpringResourceTemplateResolver templateResolver(ApplicationContext applicationContext) {
+    SpringResourceTemplateResolver templateResolver() {
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setPrefix("classpath:com/epm/recipe/web_ui/templates/");
-        templateResolver.setApplicationContext(applicationContext);
         templateResolver.setSuffix(".html");
         return templateResolver;
     }
@@ -28,9 +27,8 @@ class ThymeleafConfiguration {
     }
 
     @Bean
-    public ThymeleafViewResolver viewResolver(SpringTemplateEngine templateEngine, ApplicationContext applicationContext) {
+    ThymeleafViewResolver viewResolver(SpringTemplateEngine templateEngine) {
         ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
-        viewResolver.setApplicationContext(applicationContext);
         viewResolver.setTemplateEngine(templateEngine);
         return viewResolver;
     }
