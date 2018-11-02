@@ -9,10 +9,6 @@ subprojects {
     apply plugin: 'io.spring.dependency-management'
     apply plugin: 'org.javamodularity.moduleplugin'
 
-    compileJava {
-        options.compilerArgs += ["-parameters"]
-    }
-
     sourceCompatibility = 11
     targetCompatibility = 11
 
