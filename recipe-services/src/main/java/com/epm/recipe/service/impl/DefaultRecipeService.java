@@ -6,6 +6,7 @@ import com.epm.recipe.service.RecipeService;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 public class DefaultRecipeService implements RecipeService {
 
@@ -22,6 +23,14 @@ public class DefaultRecipeService implements RecipeService {
             throw new IllegalStateException("No recipes at all");
         }
         return all.get(0);
+    }
+
+    @Override
+    public Optional<Recipe> byId(long id) {
+        return recipeRepository.findAll()
+                .stream()
+                .filter(recipe -> recipe.id == id)
+                .findFirst();
     }
 
 }
