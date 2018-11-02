@@ -1,0 +1,4 @@
+dependencies {
+    implementation project(':recipe-services-api')
+    implementation 'org.springframework:spring-context'
+}

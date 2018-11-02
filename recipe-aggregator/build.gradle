@@ -1,0 +1,12 @@
+plugins {
+    id 'application'
+}
+
+mainClassName = "$moduleName/com.epm.recipe.aggregator.BootstrapSpring"
+
+dependencies {
+    implementation project(':recipe-web-ui')
+    implementation project(':recipe-services')
+    implementation project(':recipe-persistence-in-memory')
+    implementation 'org.springframework:spring-context'
+}

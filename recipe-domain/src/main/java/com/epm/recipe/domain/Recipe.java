@@ -16,4 +16,5 @@ public class Recipe {
                 "title='" + title + '\'' +
                 '}';
     }
+
 }
