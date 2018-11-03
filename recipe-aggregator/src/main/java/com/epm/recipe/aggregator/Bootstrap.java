@@ -18,7 +18,7 @@ public class Bootstrap {
 
     public static void main(String[] args) throws Exception {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
-        context.register(DbPersistenceConfiguration.class, ServicesConfiguration.class, WebUiConfiguration.class);
+        context.register(InMemoryPersistenceConfiguration.class, ServicesConfiguration.class, WebUiConfiguration.class);
 
         Server server = new Server(8080);
         ServletContextHandler servletContext = new ServletContextHandler();

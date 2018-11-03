@@ -5,7 +5,6 @@ import com.epm.recipe.persistence.RecipeRepository;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Optional;
 
 public class InMemoryRecipeRepository implements RecipeRepository {
     private List<Recipe> recipeList;
@@ -34,6 +33,7 @@ public class InMemoryRecipeRepository implements RecipeRepository {
                 .filter(recipe -> (recipe.getId() == id))
                 .findFirst()
                 .get();
+
     }
 
     @Override
