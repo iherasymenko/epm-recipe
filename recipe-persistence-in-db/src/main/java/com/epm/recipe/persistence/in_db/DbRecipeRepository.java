@@ -37,9 +37,8 @@ public class DbRecipeRepository implements RecipeRepository {
 
     @Override
     public void deleteById(long id) {
-        recipeList.stream()
-                .filter(recipe -> (recipe.getId() == id))
-                .forEach(i -> recipeList.remove(i));
+        Recipe recipe = getById(id).get();
+        recipeList.remove(recipe);
     }
 
     @Override

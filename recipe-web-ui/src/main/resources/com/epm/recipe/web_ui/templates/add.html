@@ -13,16 +13,19 @@
         <h2>Add recipe</h2>
     </div>
 </div>
-<div id="container">
-    <div id="content">
-        <br>
-        <form th:action="@{add}" th:object="${recipe}" method="POST">
-            Recipe title:
-            <input type="text" th:field="*{title}"/>
-            <br/><br>
-            <input type="submit" value="Create" class="add-recipe-button"/>
-        </form>
-    </div>
-</div>
+<br>
+<form th:action="@{add}" th:object="${recipe}" method="POST">
+    <label>Recipe title:</label>
+    <input type="text" th:field="*{title}"/>
+    <br><br>
+    <input type="submit" value="Create" class="add-recipe-button"/>
+
+</form>
+<p>
+    <a href="/recipe/list">Back to List</a>
+</p>
+<script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/lib.js}"></script>
 </body>
 </html>

@@ -55,4 +55,10 @@ public class RecipeController {
         recipeService.update(recipe);
         return "redirect:/recipe/list";
     }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    public String deleteRecipe(Model model, @ModelAttribute ("id") String id) {
+        recipeService.deleteById(Long.valueOf(id));
+        return "redirect:/recipe/list";
+    }
 }
