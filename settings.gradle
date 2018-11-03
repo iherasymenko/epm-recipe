@@ -5,3 +5,6 @@ include ':recipe-services'
 include ':recipe-persistence-in-memory'
 include ':recipe-web-ui'
 include ':recipe-aggregator'
+include 'recipe-dao'
+include 'recipe-persistence-in-db'
+
