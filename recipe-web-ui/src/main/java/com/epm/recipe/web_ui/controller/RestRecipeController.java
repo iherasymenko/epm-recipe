@@ -37,7 +37,7 @@ public class RestRecipeController {
     }
 
     @RequestMapping(value= "/recipe/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Recipe> getByIdWithRest(@PathVariable long id) {
+    public ResponseEntity<Recipe> getByIdWithRest(@PathVariable("id") long id) {
         Recipe recipe =  recipeService.getById(id);
         if (recipe == null) {
             return new ResponseEntity<Recipe>(HttpStatus.NOT_FOUND);
@@ -46,9 +46,13 @@ public class RestRecipeController {
     }
 
     @RequestMapping(value= "/recipe/{id}", method = RequestMethod.DELETE)
-    @ResponseBody
-    public void deleteByIdWithRest(@PathVariable long id) {
+    public ResponseEntity<Recipe> deleteByIdWithRest(@PathVariable("id") long id) {
+        Recipe recipe =  recipeService.getById(id);
+        if (recipe == null) {
+            return new ResponseEntity<Recipe>(HttpStatus.NOT_FOUND);
+        }
         recipeService.deleteById(id);
+        return new ResponseEntity<Recipe>(HttpStatus.NO_CONTENT);
     }
 
     @RequestMapping(value= "/recipe/{id}", method = RequestMethod.PUT)
