@@ -49,7 +49,10 @@ public class DefaultRecipeService implements RecipeService {
         recipeRepository.deleteById(id);
     }
 
-
+    @Override
+    public void deleteAll() {
+        recipeRepository.deleteAll();
+    }
 
 
 }

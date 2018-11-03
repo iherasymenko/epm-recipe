@@ -11,4 +11,5 @@ public interface RecipeService {
     void add(Recipe recipe);
     void update(Recipe recipe);
     void deleteById(long id);
+    void deleteAll();
 }

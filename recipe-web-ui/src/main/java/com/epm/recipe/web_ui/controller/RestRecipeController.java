@@ -55,6 +55,12 @@ public class RestRecipeController {
         return new ResponseEntity<Recipe>(HttpStatus.NO_CONTENT);
     }
 
+    @RequestMapping(value= "/recipe/", method = RequestMethod.DELETE)
+    public ResponseEntity<Recipe> deleteAllWithRest() {
+        recipeService.deleteAll();
+        return new ResponseEntity<Recipe>(HttpStatus.NO_CONTENT);
+    }
+
     @RequestMapping(value= "/recipe/{id}", method = RequestMethod.PUT)
     @ResponseBody
     public void updateWithRest(@PathVariable long id, String title) {

@@ -45,4 +45,9 @@ public class DbRecipeRepository implements RecipeRepository {
     public void update(Recipe recipe) {
         getById(recipe.getId()).setTitle(recipe.getTitle());
     }
+
+    @Override
+    public void deleteAll() {
+
+    }
 }

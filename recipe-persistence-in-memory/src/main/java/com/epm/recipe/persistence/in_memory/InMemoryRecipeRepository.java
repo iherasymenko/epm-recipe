@@ -46,4 +46,9 @@ public class InMemoryRecipeRepository implements RecipeRepository {
         deleteById(recipe.getId());
         add(recipe);
     }
+
+    @Override
+    public void deleteAll() {
+        recipeList.clear();
+    }
 }

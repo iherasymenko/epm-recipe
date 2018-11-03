@@ -10,4 +10,5 @@ public interface RecipeRepository {
     Recipe getById(long id);
     void deleteById(long id);
     void update(Recipe recipe);
+    void deleteAll();
 }
