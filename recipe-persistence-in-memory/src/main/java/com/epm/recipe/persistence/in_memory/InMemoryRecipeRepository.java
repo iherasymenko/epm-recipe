@@ -29,10 +29,11 @@ public class InMemoryRecipeRepository implements RecipeRepository {
     }
 
     @Override
-    public Optional<Recipe> getById(long id) {
+    public Recipe getById(long id) {
         return recipeList.stream()
                 .filter(recipe -> (recipe.getId() == id))
-                .findFirst();
+                .findFirst()
+                .get();
     }
 
     @Override

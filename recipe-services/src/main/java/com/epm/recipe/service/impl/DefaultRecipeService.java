@@ -6,7 +6,6 @@ import com.epm.recipe.service.RecipeService;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 public class DefaultRecipeService implements RecipeService {
 
@@ -26,7 +25,7 @@ public class DefaultRecipeService implements RecipeService {
     }
 
     @Override
-    public Optional<Recipe> getById(long id) {
+    public Recipe getById(long id) {
         return recipeRepository.getById(id);
     }
 

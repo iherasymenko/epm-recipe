@@ -27,8 +27,8 @@ public class RecipeController {
     }
 
     @RequestMapping("/list")
-    public String showAllRecipies(Model model) {
-        model.addAttribute("recipies", recipeService.getAll());
+    public String showAllRecipes(Model model) {
+        model.addAttribute("recipes", recipeService.getAll());
         return "list";
     }
 
@@ -57,7 +57,7 @@ public class RecipeController {
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
-    public String deleteRecipe(Model model, @ModelAttribute ("id") String id) {
+    public String deleteRecipe(@ModelAttribute ("id") String id) {
         recipeService.deleteById(Long.valueOf(id));
         return "redirect:/recipe/list";
     }

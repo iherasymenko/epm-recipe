@@ -29,20 +29,21 @@ public class DbRecipeRepository implements RecipeRepository {
     }
 
     @Override
-    public Optional<Recipe> getById(long id) {
+    public Recipe getById(long id) {
         return recipeList.stream()
                 .filter(recipe -> (recipe.getId() == id))
-                .findFirst();
+                .findFirst()
+                .get();
     }
 
     @Override
     public void deleteById(long id) {
-        Recipe recipe = getById(id).get();
+        Recipe recipe = getById(id);
         recipeList.remove(recipe);
     }
 
     @Override
     public void update(Recipe recipe) {
-        getById(recipe.getId()).get().setTitle(recipe.getTitle());
+        getById(recipe.getId()).setTitle(recipe.getTitle());
     }
 }

@@ -17,8 +17,10 @@
     <div id="content">
         <br>
         <form th:action="@{update}" th:object="${recipe}" method="POST">
-            Recipe title:
+            Recipe id:
             <input type="text" th:field="*{id}" readonly/>
+            <br><br>
+            Recipe title:
             <input type="text" th:field="*{title}"/>
             <br/><br>
             <input type="submit" value="Update" class="add-recipe-button"/>
