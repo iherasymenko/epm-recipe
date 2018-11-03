@@ -43,4 +43,16 @@ public class RecipeController {
         recipeService.add(recipe);
         return "redirect:/recipe/list";
     }
+
+    @RequestMapping(value = "/update", method = RequestMethod.GET)
+    public String updateRecipeForm(@ModelAttribute ("id") String id, Model model) {
+        model.addAttribute("recipe", recipeService.getById(Long.valueOf(id)));
+        return "update";
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public String updateRecipe(Model model, @ModelAttribute ("recipe") Recipe recipe) {
+        recipeService.update(recipe);
+        return "redirect:/recipe/list";
+    }
 }

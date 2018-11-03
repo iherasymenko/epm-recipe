@@ -7,7 +7,9 @@ import java.util.Optional;
 
 public interface RecipeService {
     Recipe recipeOfTheDay();
-    Optional<Recipe> byId(long id);
+    Optional<Recipe> getById(long id);
     List<Recipe> getAll();
     void add(Recipe recipe);
+    void update(Recipe recipe);
+    void deleteById(long id);
 }

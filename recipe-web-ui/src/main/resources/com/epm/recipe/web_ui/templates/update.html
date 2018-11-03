@@ -10,17 +10,18 @@
 <body>
 <div id="wrapper">
     <div id="header">
-        <h2>Add recipe</h2>
+        <h2>Update recipe</h2>
     </div>
 </div>
 <div id="container">
     <div id="content">
         <br>
-        <form th:action="@{add}" th:object="${recipe}" method="POST">
+        <form th:action="@{update}" th:object="${recipe}" method="POST">
             Recipe title:
+            <input type="text" th:field="*{id}" readonly/>
             <input type="text" th:field="*{title}"/>
             <br/><br>
-            <input type="submit" value="Create" class="add-recipe-button"/>
+            <input type="submit" value="Update" class="add-recipe-button"/>
         </form>
     </div>
 </div>

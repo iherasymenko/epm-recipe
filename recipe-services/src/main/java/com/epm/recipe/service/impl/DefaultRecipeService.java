@@ -26,11 +26,8 @@ public class DefaultRecipeService implements RecipeService {
     }
 
     @Override
-    public Optional<Recipe> byId(long id) {
-        return recipeRepository.findAll()
-                .stream()
-                .filter(recipe -> recipe.getId() == id)
-                .findFirst();
+    public Optional<Recipe> getById(long id) {
+        return recipeRepository.getById(id);
     }
 
     @Override
@@ -42,6 +39,18 @@ public class DefaultRecipeService implements RecipeService {
     public void add(Recipe recipe) {
         recipeRepository.add(recipe);
     }
+
+    @Override
+    public void update(Recipe recipe) {
+        recipeRepository.update(recipe);
+    }
+
+    @Override
+    public void deleteById(long id) {
+        recipeRepository.deleteById(id);
+    }
+
+
 
 
 }

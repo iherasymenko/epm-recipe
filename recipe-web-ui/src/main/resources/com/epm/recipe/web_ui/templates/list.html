@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>List of recipies</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
     <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css"/>
+
 </head>
 <body>
 <div id="wrapper">
@@ -14,23 +16,33 @@
 <div id="container">
     <div id="content">
         <input type="button" value="Add recipe"
-               onclick="window.location.href = 'add.html';
-                return false;"
+               onclick="window.location.href = 'add.html'; return false;"
+               class="add-recipe-button"
         />
 
         <table border="1">
             <tr style="font-size: 13">
-                <td>ID</td>
-                <td>Name</td>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Action</th>
             </tr>
             <tr th:each="recipe :  ${recipies}">
                 <td><p th:text="${recipe.id}"/></td>
                 <td><p th:text="${recipe.title}"/></td>
-
+                <td>
+                    <a th:href="@{/recipe/update(id = ${recipe.id})}">Update</a>
+                    |
+                    <a href="delete"
+                       onclick="if (!(confirm('Are you sure you want to delete this recipe?'))) return false">
+                        Delete</a>
+                </td>
             </tr>
         </table>
     </div>
 
 </div>
+<script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/lib.js}"></script>
 </body>
 </html>

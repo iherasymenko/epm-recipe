@@ -3,9 +3,9 @@ package com.epm.recipe.persistence.in_db;
 import com.epm.recipe.domain.Recipe;
 import com.epm.recipe.persistence.RecipeRepository;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
 public class DbRecipeRepository implements RecipeRepository {
     private List<Recipe> recipeList;
@@ -26,5 +26,24 @@ public class DbRecipeRepository implements RecipeRepository {
     public void add(Recipe recipe) {
         recipe.setId(recipeList.size() + 1);
         recipeList.add(recipe);
+    }
+
+    @Override
+    public Optional<Recipe> getById(long id) {
+        return recipeList.stream()
+                .filter(recipe -> (recipe.getId() == id))
+                .findFirst();
+    }
+
+    @Override
+    public void deleteById(long id) {
+        recipeList.stream()
+                .filter(recipe -> (recipe.getId() == id))
+                .forEach(i -> recipeList.remove(i));
+    }
+
+    @Override
+    public void update(Recipe recipe) {
+        getById(recipe.getId()).get().setTitle(recipe.getTitle());
     }
 }
