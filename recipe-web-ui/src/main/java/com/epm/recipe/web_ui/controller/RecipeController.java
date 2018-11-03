@@ -5,10 +5,12 @@ import com.epm.recipe.service.RecipeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Objects;
 
 @Controller
+@RequestMapping("recipe")
 public class RecipeController {
 
     private final RecipeService recipeService;
@@ -23,4 +25,8 @@ public class RecipeController {
         return "recipe";
     }
 
+    @RequestMapping("/allRecipies")
+    public String showAllRecipies(Model model) {
+        return "list";
+    }
 }
