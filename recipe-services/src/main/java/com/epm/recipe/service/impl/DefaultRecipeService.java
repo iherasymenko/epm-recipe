@@ -33,4 +33,9 @@ public class DefaultRecipeService implements RecipeService {
                 .findFirst();
     }
 
+    @Override
+    public List<Recipe> getAll() {
+        return recipeRepository.findAll();
+    }
+
 }

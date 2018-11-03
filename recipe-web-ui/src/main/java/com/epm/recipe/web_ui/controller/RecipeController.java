@@ -25,8 +25,9 @@ public class RecipeController {
         return "recipe";
     }
 
-    @RequestMapping("/allRecipies")
+    @RequestMapping("/list-recipies")
     public String showAllRecipies(Model model) {
+        model.addAttribute("recipies", recipeService.getAll());
         return "list";
     }
 }
