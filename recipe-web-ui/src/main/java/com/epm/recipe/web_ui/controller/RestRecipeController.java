@@ -3,10 +3,12 @@ package com.epm.recipe.web_ui.controller;
 import com.epm.recipe.domain.Recipe;
 import com.epm.recipe.service.RecipeService;
 
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
 import java.util.Objects;
@@ -61,10 +63,12 @@ public class RestRecipeController {
         return new ResponseEntity<Recipe>(HttpStatus.NO_CONTENT);
     }
 
-    @RequestMapping(value= "/recipe/{id}", method = RequestMethod.PUT)
-    @ResponseBody
-    public void updateWithRest(@PathVariable long id, String title) {
-        recipeService.add(new Recipe(title, id));
+    @RequestMapping(value= "/recipe/", method = RequestMethod.POST)
+    public ResponseEntity<Void> createWithRest(@RequestBody Recipe recipe, UriComponentsBuilder uriComponentsBuilder) {
+        recipeService.add(recipe);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setLocation(uriComponentsBuilder.path("/recipe/{id}").buildAndExpand(recipe.getId()).toUri());
+        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
 
 
