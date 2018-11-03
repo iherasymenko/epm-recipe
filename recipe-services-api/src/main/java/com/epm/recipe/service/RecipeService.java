@@ -9,4 +9,5 @@ public interface RecipeService {
     Recipe recipeOfTheDay();
     Optional<Recipe> byId(long id);
     List<Recipe> getAll();
+    void add(Recipe recipe);
 }

@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface RecipeRepository {
     List<Recipe> findAll();
+    void add(Recipe recipe);
 }

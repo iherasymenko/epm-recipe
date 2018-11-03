@@ -1,11 +1,12 @@
 package com.epm.recipe.web_ui.controller;
 
+import com.epm.recipe.domain.Recipe;
 import com.epm.recipe.service.RecipeService;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Objects;
 
@@ -25,9 +26,21 @@ public class RecipeController {
         return "recipe";
     }
 
-    @RequestMapping("/list-recipies")
+    @RequestMapping("/list")
     public String showAllRecipies(Model model) {
         model.addAttribute("recipies", recipeService.getAll());
         return "list";
+    }
+
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    public String addRecipeForm(Model model) {
+        model.addAttribute("recipe", new Recipe());
+        return "add";
+    }
+
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public String addRecipe(Model model, @ModelAttribute ("recipe") Recipe recipe) {
+        recipeService.add(recipe);
+        return "redirect:/recipe/list";
     }
 }

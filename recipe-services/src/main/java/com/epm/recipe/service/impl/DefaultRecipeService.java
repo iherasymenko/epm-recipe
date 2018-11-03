@@ -29,7 +29,7 @@ public class DefaultRecipeService implements RecipeService {
     public Optional<Recipe> byId(long id) {
         return recipeRepository.findAll()
                 .stream()
-                .filter(recipe -> recipe.id == id)
+                .filter(recipe -> recipe.getId() == id)
                 .findFirst();
     }
 
@@ -37,5 +37,11 @@ public class DefaultRecipeService implements RecipeService {
     public List<Recipe> getAll() {
         return recipeRepository.findAll();
     }
+
+    @Override
+    public void add(Recipe recipe) {
+        recipeRepository.add(recipe);
+    }
+
 
 }
