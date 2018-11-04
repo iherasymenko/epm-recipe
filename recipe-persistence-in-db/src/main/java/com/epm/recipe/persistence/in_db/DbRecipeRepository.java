@@ -10,10 +10,10 @@ public class DbRecipeRepository implements RecipeRepository {
     private List<Recipe> recipeList;
 
     public DbRecipeRepository() {
-        recipeList = new LinkedList<>();
-        recipeList.add(new Recipe("Hashbrown", 1));
-        recipeList.add(new Recipe("Sandwich", 2));
-                //Arrays.asList(new Recipe("Hashbrown", 10), new Recipe("Sandwich", 20));
+//        recipeList = new LinkedList<>();
+//        recipeList.add(new Recipe("Hashbrown", 1));
+//        recipeList.add(new Recipe("Sandwich", 2));
+//                //Arrays.asList(new Recipe("Hashbrown", 10), new Recipe("Sandwich", 20));
     }
 
     @Override
