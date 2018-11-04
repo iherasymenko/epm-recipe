@@ -10,15 +10,20 @@ import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.core.env.Environment;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
+import org.springframework.core.env.ConfigurableEnvironment;
 
 public class Bootstrap {
 
     public static void main(String[] args) throws Exception {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
-        context.register(InMemoryPersistenceConfiguration.class, ServicesConfiguration.class, WebUiConfiguration.class);
+        context.register(DbPersistenceConfiguration.class, ServicesConfiguration.class, WebUiConfiguration.class);
+
+//        Environment environment = context.getEnvironment();
 
         Server server = new Server(8080);
         ServletContextHandler servletContext = new ServletContextHandler();

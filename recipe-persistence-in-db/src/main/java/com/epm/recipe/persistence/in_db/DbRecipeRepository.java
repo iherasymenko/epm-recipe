@@ -2,6 +2,10 @@ package com.epm.recipe.persistence.in_db;
 
 import com.epm.recipe.domain.Recipe;
 import com.epm.recipe.persistence.RecipeRepository;
+import com.epm.recipe.persistence.in_db.converter.Converter;
+import com.epm.recipe.persistence.in_db.converter.RecipeConverter;
+import com.epm.recipe.persistence.in_db.dao.SpringJdbcDao;
+import com.epm.recipe.persistence.in_db.dto.RecipeDto;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -9,41 +13,39 @@ import java.util.List;
 public class DbRecipeRepository implements RecipeRepository {
     private List<Recipe> recipeList;
 
+    SpringJdbcDao springJdbcDao;
+    Converter recipeConverter;
+
     public DbRecipeRepository() {
-//        recipeList = new LinkedList<>();
-//        recipeList.add(new Recipe("Hashbrown", 1));
-//        recipeList.add(new Recipe("Sandwich", 2));
-//                //Arrays.asList(new Recipe("Hashbrown", 10), new Recipe("Sandwich", 20));
+        springJdbcDao = new SpringJdbcDao();
+        recipeConverter = new RecipeConverter();
     }
 
     @Override
     public List<Recipe> findAll() {
-        return recipeList;
+        return recipeConverter.asObj(springJdbcDao.findAll());
     }
 
     @Override
     public void add(Recipe recipe) {
-        recipe.setId(recipeList.size() + 1);
-        recipeList.add(recipe);
+        springJdbcDao.add((RecipeDto)recipeConverter.asDto(recipe));
     }
 
     @Override
     public Recipe getById(long id) {
-        return recipeList.stream()
-                .filter(recipe -> (recipe.getId() == id))
-                .findFirst()
-                .get();
+        Recipe recipe = (Recipe) recipeConverter.asObj(springJdbcDao.getById(id));
+        return recipe;
     }
 
     @Override
     public void deleteById(long id) {
-        Recipe recipe = getById(id);
-        recipeList.remove(recipe);
+//        Recipe recipe = getById(id);
+        springJdbcDao.remove(id);
     }
 
     @Override
     public void update(Recipe recipe) {
-        getById(recipe.getId()).setTitle(recipe.getTitle());
+        springJdbcDao.update((RecipeDto) recipeConverter.asDto(recipe));
     }
 
     @Override

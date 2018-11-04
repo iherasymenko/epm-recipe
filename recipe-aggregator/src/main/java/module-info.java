@@ -9,4 +9,5 @@ module recipe.aggregator {
     requires recipe.services.impl;
     requires recipe.persistence.in_memory;
     requires recipe.persistence.in_db;
+    requires spring.core;
 }
