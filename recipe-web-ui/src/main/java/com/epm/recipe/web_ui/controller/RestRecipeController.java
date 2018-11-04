@@ -63,6 +63,7 @@ public class RestRecipeController {
         return new ResponseEntity<Recipe>(HttpStatus.NO_CONTENT);
     }
 
+    //TODO check create with REST
     @RequestMapping(value= "/recipe/", method = RequestMethod.POST)
     public ResponseEntity<Void> createWithRest(@RequestBody Recipe recipe, UriComponentsBuilder uriComponentsBuilder) {
         recipeService.add(recipe);
@@ -71,7 +72,7 @@ public class RestRecipeController {
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
 
-
+    //TODO update with REST
 
 
 }

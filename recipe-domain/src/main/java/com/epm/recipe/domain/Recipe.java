@@ -6,6 +6,21 @@ public class Recipe {
 
     private String title;
 
+    private long id;
+
+    public Recipe() { }
+
+    public Recipe(String title) {
+        this.title = title;
+        //TODO id maybe null?
+        id = 0;
+    }
+
+    public Recipe(String title, long id) {
+        this.title = Objects.requireNonNull(title, "title");
+        this.id = id;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -14,30 +29,10 @@ public class Recipe {
         return id;
     }
 
-    public Recipe() {
-    }
-
-    public void setTitle(String title) {
-
-        this.title = title;
-    }
+    public void setTitle(String title) { this.title = title; }
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    private long id;
-
-    public Recipe(String title, long id) {
-        this.title = Objects.requireNonNull(title, "title");
-        this.id = id;
-
-    }
-
-    public Recipe(String title) {
-        this.title = title;
-        //TODO id maybe null?
-        id = 0;
     }
 
     @Override

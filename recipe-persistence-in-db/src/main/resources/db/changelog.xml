@@ -1,0 +1,11 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation=
+
+                "http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <include file="recipe-persistence-in-db/src/main/resources/db/db.changelog-0.1.0.xml"/>
+    <include file="recipe-persistence-in-db/src/main/resources/db/db.changelog-0.1.0.ExampleData.xml"/>
+</databaseChangeLog>
