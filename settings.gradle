@@ -1,7 +1,10 @@
 include ':recipe-domain'
-include ':recipe-persistence'
 include ':recipe-services-api'
 include ':recipe-services'
-include ':recipe-persistence-in-memory'
+include ':recipe-persistence'
+include ':recipe-persistence-jdbc'
+include ':recipe-converter'
+include ':recipe-converter-api'
 include ':recipe-web-ui'
 include ':recipe-aggregator'
+
