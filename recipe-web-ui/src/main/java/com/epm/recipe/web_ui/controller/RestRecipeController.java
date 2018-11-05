@@ -63,7 +63,6 @@ public class RestRecipeController {
         return new ResponseEntity<Recipe>(HttpStatus.NO_CONTENT);
     }
 
-    //TODO check create with REST
     @RequestMapping(value= "/recipe/", method = RequestMethod.POST)
     public ResponseEntity<Void> createWithRest(@RequestBody Recipe recipe, UriComponentsBuilder uriComponentsBuilder) {
         recipeService.add(recipe);
@@ -73,7 +72,17 @@ public class RestRecipeController {
     }
 
     //TODO update with REST
-
+    @RequestMapping(value= "/recipe/{id}/update", method = RequestMethod.PUT)
+    public ResponseEntity<Recipe> updateWithRest(@PathVariable("id") long id, @RequestBody Recipe recipe) {
+//        recipeService.add(recipe);
+        Recipe currentRecipe = recipeService.getById(id);
+        if (currentRecipe == null) {
+            return new ResponseEntity<Recipe>(HttpStatus.NOT_FOUND);
+        }
+        currentRecipe.setTitle(recipe.getTitle());
+        recipeService.update(currentRecipe);
+        return new ResponseEntity<Recipe>(currentRecipe, HttpStatus.OK);
+    }
 
 
 }

@@ -37,7 +37,8 @@ public class DbConfig {
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
 //        dataSource.setDriverClassName("com.h2.Driver");
         dataSource.setDriver(new org.h2.Driver());
-        dataSource.setUrl("jdbc:h2:~/recipeDb;DB_CLOSE_DELAY=-1;TRACE_LEVEL_FILE=1;MODE=Oracle");
+        dataSource.setUrl("jdbc:h2:~/recipeDbLevytskyi;DB_CLOSE_DELAY=-1;TRACE_LEVEL_FILE=1;MODE=Oracle");
+//        dataSource.setUrl("jdbc:h2:mem:recipeDb;DB_CLOSE_DELAY=-1;TRACE_LEVEL_FILE=1;MODE=Oracle");
         dataSource.setUsername("admin");
         dataSource.setPassword("admin");
 
