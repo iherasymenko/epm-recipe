@@ -2,7 +2,7 @@ package com.epm.recipe.service.impl;
 
 import com.epm.recipe.converter.RecipeConverter;
 import com.epm.recipe.persistence.RecipeRepository;
-import com.epm.recipe.persistence.exceptions.RepositoryException;
+import com.epm.recipe.persistence.exceptions.RecipeRepositoryException;
 import com.epm.recipe.service.RecipeService;
 import com.epm.recipe.service.dto.CreateRecipeDto;
 import com.epm.recipe.service.dto.UpdateRecipeDto;
@@ -33,7 +33,7 @@ public class DefaultRecipeService implements RecipeService {
     public ViewRecipeDto getById(long id) {
         try {
             return recipeConverter.convertToViewDto(recipeRepository.findById(id));
-        } catch (RepositoryException e) {
+        } catch (RecipeRepositoryException e) {
             throw new NoRecipeWithSuchIdException(e);
         }
     }
@@ -42,7 +42,7 @@ public class DefaultRecipeService implements RecipeService {
     public List<ViewRecipeDto> getAll() {
         try {
             return recipeConverter.convertToViewDtos(recipeRepository.findAll());
-        } catch (RepositoryException e) {
+        } catch (RecipeRepositoryException e) {
             throw new NoRecipesException(e);
         }
     }
@@ -56,7 +56,7 @@ public class DefaultRecipeService implements RecipeService {
     public ViewRecipeDto update(UpdateRecipeDto recipeDto) {
         try {
             recipeRepository.update(recipeConverter.convertToRecipe(recipeDto));
-        } catch (RepositoryException e) {
+        } catch (RecipeRepositoryException e) {
             throw new NoRecipeWithSuchIdException(e);
         }
         return recipeConverter.convertToViewDto(recipeDto);
@@ -66,7 +66,7 @@ public class DefaultRecipeService implements RecipeService {
     public void delete(long id) {
         try {
             recipeRepository.delete(id);
-        } catch (RepositoryException e) {
+        } catch (RecipeRepositoryException e) {
             throw new NoRecipeWithSuchIdException(e);
         }
     }

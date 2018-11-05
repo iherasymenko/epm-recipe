@@ -2,7 +2,7 @@ package com.epm.recipe.persistence.jdbc;
 
 import com.epm.recipe.domain.Recipe;
 import com.epm.recipe.persistence.RecipeRepository;
-import com.epm.recipe.persistence.exceptions.RepositoryException;
+import com.epm.recipe.persistence.exceptions.RecipeRepositoryException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
@@ -26,7 +26,7 @@ public class JdbcRecipeRepository implements RecipeRepository {
                 )
         );
         if (recipes.isEmpty()) {
-            throw new RepositoryException("There is no recipes");
+            throw new RecipeRepositoryException("There is no recipes");
         }
         return recipes;
     }
@@ -44,7 +44,7 @@ public class JdbcRecipeRepository implements RecipeRepository {
                 id
         );
         if (recipes.isEmpty()) {
-            throw new RepositoryException("There is no recipe with id = " + id);
+            throw new RecipeRepositoryException("There is no recipe with id = " + id);
         }
         return recipes.get(0);
     }

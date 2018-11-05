@@ -2,7 +2,7 @@ package com.epm.recipe.persistence.jdbc;
 
 import com.epm.recipe.domain.Recipe;
 import com.epm.recipe.persistence.RecipeRepository;
-import com.epm.recipe.persistence.exceptions.RepositoryException;
+import com.epm.recipe.persistence.exceptions.RecipeRepositoryException;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -50,7 +50,7 @@ public class JdbcRecipeRepositoryTest {
                 any(RowMapper.class)
         )).thenReturn(Collections.emptyList());
         //WHEN THEN
-        assertThrows(RepositoryException.class,
+        assertThrows(RecipeRepositoryException.class,
                 () -> {
                     recipeRepositiory.findAll();
                 },
@@ -83,7 +83,7 @@ public class JdbcRecipeRepositoryTest {
                 eq((long) 1)
         )).thenReturn(Collections.emptyList());
         //WHEN THEN
-        assertThrows(RepositoryException.class,
+        assertThrows(RecipeRepositoryException.class,
                 () -> {
                     recipeRepositiory.findById(1);
                 },
@@ -121,7 +121,7 @@ public class JdbcRecipeRepositoryTest {
                 eq((long) 1)
         )).thenReturn(Collections.emptyList());
         //WHEN THEN
-        assertThrows(RepositoryException.class,
+        assertThrows(RecipeRepositoryException.class,
                 () -> {
                     recipeRepositiory.update(updatedRecipe);
                 },
@@ -162,7 +162,7 @@ public class JdbcRecipeRepositoryTest {
                 eq((long) 1)
         )).thenReturn(Collections.emptyList());
         //WHEN THEN
-        assertThrows(RepositoryException.class,
+        assertThrows(RecipeRepositoryException.class,
                 () -> {
                     recipeRepositiory.delete(1);
                 },

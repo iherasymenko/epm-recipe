@@ -4,4 +4,7 @@ dependencies {
     implementation project(':recipe-domain')
     implementation project(':recipe-converter-api')
     implementation 'org.springframework:spring-context'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api'
+    testImplementation 'org.mockito:mockito-core'
 }
