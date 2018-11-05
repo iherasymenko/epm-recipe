@@ -7,10 +7,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
 
-public class JdbcRecipeRepositiory implements RecipeRepository {
+public class JdbcRecipeRepository implements RecipeRepository {
     private JdbcTemplate jdbcTemplate;
 
-    public JdbcRecipeRepositiory(JdbcTemplate jdbcTemplate) {
+    public JdbcRecipeRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
@@ -26,7 +26,7 @@ public class JdbcRecipeRepositiory implements RecipeRepository {
                 )
         );
         if (recipes.isEmpty()) {
-            throw new RepositoryException("There is no recipes.");
+            throw new RepositoryException("There is no recipes");
         }
         return recipes;
     }
