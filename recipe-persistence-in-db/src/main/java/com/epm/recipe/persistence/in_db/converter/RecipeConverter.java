@@ -13,11 +13,15 @@ import java.util.List;
 public class RecipeConverter implements Converter <Recipe, RecipeDto> {
     @Override
     public RecipeDto asDto(Recipe recipe) {
+        if (recipe == null) return null;
         return new RecipeDto(recipe.getTitle(), recipe.getId());
     }
 
     @Override
-    public Recipe asObj(RecipeDto recipeDto) { return new Recipe(recipeDto.getTitle(), recipeDto.getId()); }
+    public Recipe asObj(RecipeDto recipeDto) {
+        if (recipeDto == null) return null;
+        return new Recipe(recipeDto.getTitle(), recipeDto.getId());
+    }
 
     @Override
     public List<Recipe> asObj(List<RecipeDto> recipeDtos) {

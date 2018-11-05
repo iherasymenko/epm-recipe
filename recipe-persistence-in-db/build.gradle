@@ -1,0 +1,80 @@
+//
+//plugins {
+//    id 'org.liquibase.gradle' version '2.0.1'
+//}
+
+apply plugin: 'liquibase'
+
+buildscript{
+    repositories{
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'org.liquibase:liquibase-core:3.4.1'
+        classpath "org.liquibase:liquibase-gradle-plugin:1.2.4"
+        classpath 'com.h2database:h2:1.3.153'
+        //If you used your own repo to host the plugin, you can use the line below
+        //classpath group: 'edu.umich.med.michr.gradle', name: 'h2-liquibase-plugin',version: '1.0.0'
+//        classpath files('<The path to the plugin project after you checked out>/build/libs/h2-liquibase-plugin-1.0.0.jar')
+    }
+}
+//
+def changeLog = "$projectDir/src/main/resources/db/changelog.xml"
+
+def props = new Properties()
+file("$projectDir/src/main/resources/db.properties").withInputStream { props.load(it) }
+
+task('dev') << {
+    println "executing dev"
+    liquibase {
+        activities {
+            main {
+                changeLogFile changeLog
+                url props.getProperty("url")
+                username props.getProperty("dbuser")
+                password props.getProperty("dbpassword")
+//                url 'jdbc:h2:~/recipeDbLevytskyi;DB_CLOSE_DELAY=-1;TRACE_LEVEL_FILE=1;MODE=Oracle'
+////                url 'jdbc:h2:mem:recipeDb;DB_CLOSE_DELAY=-1;TRACE_LEVEL_FILE=1;MODE=Oracle'
+//                username 'admin'
+//                password 'admin'
+            }
+        }
+    }
+}
+dependencies {
+    implementation project(':recipe-persistence')
+    implementation project(':recipe-domain')
+    implementation 'org.springframework:spring-context'
+    implementation 'com.h2database:h2:1.3.148'
+    implementation 'org.hibernate:hibernate-core:5.3.7.Final'
+    implementation 'javax.servlet:javax.servlet-api:3.1.0'
+    // https://mvnrepository.com/artifact/com.h2database/h2
+    compile group: 'com.h2database', name: 'h2', version: '1.4.197'
+// https://mvnrepository.com/artifact/javax.persistence/persistence-api
+//   compile group: 'javax.persistence', name: 'persistence-api', version: '1.0.2'
+    // https://mvnrepository.com/artifact/org.hibernate/hibernate-core
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '5.3.6.Final'
+    // https://mvnrepository.com/artifact/org.springframework/spring-jdbc
+    compile group: 'org.springframework', name: 'spring-jdbc', version: '5.1.2.RELEASE'
+
+
+
+
+}
+
+//liquibase {
+//    activities {
+//        main {
+//            changeLogFile 'src/main/db/changelog.xml'
+//            driver 'org.h2.Driver'
+//            url 'jdbc:h2:mem:umcs;DB_CLOSE_DELAY=-1;TRACE_LEVEL_FILE=1;MODE=Oracle'
+//            username 'myappuser'
+//            password 'myappuserpassword'
+//            contexts 'schema,schema_staging,seed_data,dev_data'
+//            defaultSchemaName 'PUBLIC'
+//            logLevel 'info'
+//        }
+//    }
+//}

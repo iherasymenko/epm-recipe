@@ -43,6 +43,7 @@ public class SpringJdbcDao implements RecipeDao {
 
     @Override
     public RecipeDto getById(long id) {
+        if (checkIfIdExist(id) == false) { return null; }
         RecipeDto recipeDto = jdbcTemplate.queryForObject(SQL_GET_BY_ID, (rs, rowNum) -> {
             final RecipeDto recipeDto1 = new RecipeDto();
             recipeDto1.setId(rs.getInt("id"));
@@ -50,6 +51,16 @@ public class SpringJdbcDao implements RecipeDao {
             return recipeDto1;
         }, id);
         return recipeDto;
+    }
+
+    String SQL_CHECK_IF_ID_EXIST = "SELECT count(*) FROM RECIPE WHERE id = ?";
+    private boolean checkIfIdExist(long id) {
+        boolean result = false;
+        int count = jdbcTemplate.queryForObject(SQL_CHECK_IF_ID_EXIST, new Object[] { id }, Integer.class);
+        if (count > 0) {
+            result = true;
+        }
+        return result;
     }
 
     private final String SQL_REMOVE_BY_ID = "delete from RECIPE where id = ?";

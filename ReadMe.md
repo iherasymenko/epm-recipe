@@ -1,9 +1,7 @@
-1. Create a new implementation for recipe-persistence
-2. Add an ability to create a new recipe via the restful API
-3. Add an ability to update a recipe via the restful API
-4. Add an ability to list all the available recipes in the system via the restful API
-5. Add an ability to remove a recipe via the restful API
-6. Add an ability to create a new recipe via the WebUI
-7. Add an ability to update a recipe via via the WebUI
-8. Add an ability to list all the available recipes in the system via the WebUI
-9. Add an ability to remove a recipe via the WebUI
+This is the homework of Levytskyi Oleh on Spring MVC.
+
+To start the application you need:
+1. create DB by command "gradle task dev update"
+2. run the application by command "gradle task run"
+3. to test WebUI - go to the link "localhost:8080" in your browser
+4. to test RESTfull API- open in Postman next link: https://www.getpostman.com/collections/86677300111a4618f763

@@ -23,12 +23,7 @@ public class RestRecipeController {
         this.recipeService = Objects.requireNonNull(recipeService, "recipeService");
     }
 
-    @GetMapping("recipe_of_the_day")
-    public Recipe recipeOfTheDay() {
-        return recipeService.recipeOfTheDay();
-    }
-
-    @RequestMapping(value= "/recipe/", method = RequestMethod.GET)
+    @RequestMapping(value= "/recipes/", method = RequestMethod.GET)
     public ResponseEntity<List<Recipe>> getAllUsersWithRest() {
         List<Recipe> recipeList = recipeService.getAll();
         if (recipeList.isEmpty()) {
@@ -38,7 +33,7 @@ public class RestRecipeController {
 
     }
 
-    @RequestMapping(value= "/recipe/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value= "/recipes/{id}/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Recipe> getByIdWithRest(@PathVariable("id") long id) {
         Recipe recipe =  recipeService.getById(id);
         if (recipe == null) {
@@ -47,7 +42,7 @@ public class RestRecipeController {
         return new ResponseEntity<Recipe>(recipe, HttpStatus.OK);
     }
 
-    @RequestMapping(value= "/recipe/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value= "/recipes/{id}/", method = RequestMethod.DELETE)
     public ResponseEntity<Recipe> deleteByIdWithRest(@PathVariable("id") long id) {
         Recipe recipe =  recipeService.getById(id);
         if (recipe == null) {
@@ -57,13 +52,13 @@ public class RestRecipeController {
         return new ResponseEntity<Recipe>(HttpStatus.NO_CONTENT);
     }
 
-    @RequestMapping(value= "/recipe/", method = RequestMethod.DELETE)
+    @RequestMapping(value= "/recipes/", method = RequestMethod.DELETE)
     public ResponseEntity<Recipe> deleteAllWithRest() {
         recipeService.deleteAll();
         return new ResponseEntity<Recipe>(HttpStatus.NO_CONTENT);
     }
 
-    @RequestMapping(value= "/recipe/", method = RequestMethod.POST)
+    @RequestMapping(value= "/recipes/", method = RequestMethod.POST)
     public ResponseEntity<Void> createWithRest(@RequestBody Recipe recipe, UriComponentsBuilder uriComponentsBuilder) {
         recipeService.add(recipe);
         HttpHeaders headers = new HttpHeaders();
@@ -71,8 +66,7 @@ public class RestRecipeController {
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
 
-    //TODO update with REST
-    @RequestMapping(value= "/recipe/{id}/update", method = RequestMethod.PUT)
+    @RequestMapping(value= "/recipes/{id}/", method = RequestMethod.PUT)
     public ResponseEntity<Recipe> updateWithRest(@PathVariable("id") long id, @RequestBody Recipe recipe) {
 //        recipeService.add(recipe);
         Recipe currentRecipe = recipeService.getById(id);

@@ -6,4 +6,7 @@ dependencies {
     implementation 'org.thymeleaf:thymeleaf-spring5'
     implementation 'com.fasterxml.jackson.core:jackson-databind'
     implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.7'
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.3.1'
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile group: 'org.springframework', name: 'spring-test', version: '4.0.5.RELEASE'
 }
