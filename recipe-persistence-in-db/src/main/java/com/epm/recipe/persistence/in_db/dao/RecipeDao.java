@@ -1,6 +1,5 @@
 package com.epm.recipe.persistence.in_db.dao;
 
-import com.epm.recipe.domain.Recipe;
 import com.epm.recipe.persistence.in_db.dto.RecipeDto;
 
 import java.util.List;

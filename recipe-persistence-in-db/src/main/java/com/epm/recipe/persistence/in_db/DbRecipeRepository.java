@@ -12,37 +12,14 @@ import java.util.List;
 
 
 public class DbRecipeRepository implements RecipeRepository {
-    private List<Recipe> recipeList;
 
     @Autowired
-    SpringJdbcDao recipeDao;
+    RecipeDao recipeDao;
 
     @Autowired
     Converter converter;
 
-    public SpringJdbcDao getRecipeDao() {
-        return recipeDao;
-    }
-
-    public void setRecipeDao(SpringJdbcDao recipeDao) {
-        this.recipeDao = recipeDao;
-    }
-
-    public Converter getConverter() {
-        return converter;
-    }
-
-    public void setConverter(Converter converter) {
-        this.converter = converter;
-    }
-
     public DbRecipeRepository() {
-//        recipeDao  = new SpringJdbcDao();
-    }
-
-    public DbRecipeRepository(SpringJdbcDao recipeDao, Converter converter) {
-        this.recipeDao = recipeDao;
-        this.converter = converter;
     }
 
     @Override

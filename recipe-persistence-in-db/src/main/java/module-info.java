@@ -7,7 +7,6 @@ module recipe.persistence.in_db {
     requires java.sql;
     requires spring.beans;
     requires spring.core;
-//    requires persistence.api;
     opens com.epm.recipe.persistence.in_db to spring.core;
     opens com.epm.recipe.persistence.in_db.config to spring.core;
     exports com.epm.recipe.persistence.in_db.config;

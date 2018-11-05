@@ -17,9 +17,7 @@ public class RecipeConverter implements Converter <Recipe, RecipeDto> {
     }
 
     @Override
-    public Recipe asObj(RecipeDto recipeDto) {
-        return new Recipe(recipeDto.getTitle(), recipeDto.getId());
-    }
+    public Recipe asObj(RecipeDto recipeDto) { return new Recipe(recipeDto.getTitle(), recipeDto.getId()); }
 
     @Override
     public List<Recipe> asObj(List<RecipeDto> recipeDtos) {
