@@ -5,16 +5,11 @@ import com.epm.recipe.persistence.in_db.dto.RecipeDto;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
@@ -22,23 +17,23 @@ import javax.sql.DataSource;
 @Repository
 public class SpringJdbcDao implements RecipeDao{
 
-    private final String SQL_GET_ALL = "select * from RECIPE";
-    private JdbcTemplate jdbcTemplate;
-    private DataSource dataSource;
-    private DbConfig dbConfig;
 
-    public void setJdbcTemplate(JdbcTemplate jdbcTemplate){
+
+    private JdbcTemplate jdbcTemplate;
+
+    public SpringJdbcDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public SpringJdbcDao() {
-        dbConfig = new DbConfig();
-        dataSource = dbConfig.dataSource();
-        jdbcTemplate = new JdbcTemplate(dataSource);
-    }
-
+    private final String SQL_GET_ALL = "select * from RECIPE";
     public List<RecipeDto> findAll() {
-        List<RecipeDto> recipeDtoList = jdbcTemplate.query(SQL_GET_ALL, new RecipeMapper());
+        List<RecipeDto> recipeDtoList = jdbcTemplate.query(SQL_GET_ALL,
+                (resultSet, i) -> {
+                    RecipeDto recipeDto = new RecipeDto();
+                    recipeDto.setId(resultSet.getLong("id"));
+                    recipeDto.setTitle(resultSet.getString("Title"));
+                    return recipeDto;
+                });
         return recipeDtoList;
     }
 
@@ -52,24 +47,11 @@ public class SpringJdbcDao implements RecipeDao{
     private final String SQL_GET_BY_ID = "select * from RECIPE where id = ?";
     @Override
     public RecipeDto getById(long id) {
-        int[] types = {Types.BIGINT};
-        Object[] args = new Object[] {id};
-//        RecipeDto recipeDto = jdbcTemplate.queryForObject(SQL_GET_BY_ID,
-////                args,
-////                new BeanPropertyRowMapper(RecipeDto.class));
-//                RecipeDto.class,
-//                id
-//
-//        );
-
-        RecipeDto recipeDto =jdbcTemplate.queryForObject(SQL_GET_BY_ID, new RowMapper<RecipeDto>() {
-
-            public RecipeDto mapRow(ResultSet rs, int rowNum) throws SQLException {
-                final RecipeDto recipeDto1 = new RecipeDto();
-                recipeDto1.setId(rs.getInt("id"));
-                recipeDto1.setTitle(rs.getString("Title"));
-                return recipeDto1;
-            }
+        RecipeDto recipeDto =jdbcTemplate.queryForObject(SQL_GET_BY_ID, (rs, rowNum) -> {
+            final RecipeDto recipeDto1 = new RecipeDto();
+            recipeDto1.setId(rs.getInt("id"));
+            recipeDto1.setTitle(rs.getString("Title"));
+            return recipeDto1;
         }, id);
         return recipeDto;
     }
