@@ -7,13 +7,12 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class InMemoryRecipeRepository implements RecipeRepository {
-    private List<Recipe> recipeList;
+    private LinkedList<Recipe> recipeList;
 
     public InMemoryRecipeRepository() {
         recipeList = new LinkedList<>();
         recipeList.add(new Recipe("Hashbrown", 1));
         recipeList.add(new Recipe("Sandwich", 2));
-        //Arrays.asList(new Recipe("Hashbrown", 10), new Recipe("Sandwich", 20));
     }
 
     @Override
@@ -23,7 +22,7 @@ public class InMemoryRecipeRepository implements RecipeRepository {
 
     @Override
     public void add(Recipe recipe) {
-        recipe.setId(recipeList.size() + 1);
+        recipe.setId(recipeList.getLast().getId() + 1);
         recipeList.add(recipe);
     }
 

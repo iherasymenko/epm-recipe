@@ -27,9 +27,9 @@ public class RestRecipeController {
     public ResponseEntity<List<Recipe>> getAllUsersWithRest() {
         List<Recipe> recipeList = recipeService.getAll();
         if (recipeList.isEmpty()) {
-            return new ResponseEntity<List<Recipe>>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<List<Recipe>>(recipeList, HttpStatus.OK);
+        return new ResponseEntity<>(recipeList, HttpStatus.OK);
 
     }
 
@@ -37,25 +37,25 @@ public class RestRecipeController {
     public ResponseEntity<Recipe> getByIdWithRest(@PathVariable("id") long id) {
         Recipe recipe =  recipeService.getById(id);
         if (recipe == null) {
-            return new ResponseEntity<Recipe>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<Recipe>(recipe, HttpStatus.OK);
+        return new ResponseEntity<>(recipe, HttpStatus.OK);
     }
 
     @RequestMapping(value= "/recipes/{id}/", method = RequestMethod.DELETE)
     public ResponseEntity<Recipe> deleteByIdWithRest(@PathVariable("id") long id) {
         Recipe recipe =  recipeService.getById(id);
         if (recipe == null) {
-            return new ResponseEntity<Recipe>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         recipeService.deleteById(id);
-        return new ResponseEntity<Recipe>(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @RequestMapping(value= "/recipes/", method = RequestMethod.DELETE)
     public ResponseEntity<Recipe> deleteAllWithRest() {
         recipeService.deleteAll();
-        return new ResponseEntity<Recipe>(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @RequestMapping(value= "/recipes/", method = RequestMethod.POST)
@@ -68,14 +68,13 @@ public class RestRecipeController {
 
     @RequestMapping(value= "/recipes/{id}/", method = RequestMethod.PUT)
     public ResponseEntity<Recipe> updateWithRest(@PathVariable("id") long id, @RequestBody Recipe recipe) {
-//        recipeService.add(recipe);
         Recipe currentRecipe = recipeService.getById(id);
         if (currentRecipe == null) {
-            return new ResponseEntity<Recipe>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         currentRecipe.setTitle(recipe.getTitle());
         recipeService.update(currentRecipe);
-        return new ResponseEntity<Recipe>(currentRecipe, HttpStatus.OK);
+        return new ResponseEntity<>(currentRecipe, HttpStatus.OK);
     }
 
 

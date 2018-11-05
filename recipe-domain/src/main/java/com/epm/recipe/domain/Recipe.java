@@ -12,7 +12,6 @@ public class Recipe {
 
     public Recipe(String title) {
         this.title = title;
-        //TODO id maybe null?
         id = 0;
     }
 
