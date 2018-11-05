@@ -87,4 +87,10 @@ public class SpringJdbcDao implements RecipeDao{
         jdbcTemplate.update(SQL_UPDATE, recipeDto.getTitle(), recipeDto.getId());
 
     }
+
+    private final String SQL_DELETE_ALL = "delete from RECIPE";
+    @Override
+    public void deleteAll() {
+        jdbcTemplate.update(SQL_DELETE_ALL);
+    }
 }

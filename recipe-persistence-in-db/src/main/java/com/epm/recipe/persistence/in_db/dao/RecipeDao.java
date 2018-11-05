@@ -11,4 +11,5 @@ public interface RecipeDao {
     RecipeDto getById(long id);
     void remove(long id);
     void update(RecipeDto recipeDto);
+    void deleteAll();
 }
