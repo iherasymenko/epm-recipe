@@ -1,0 +1,21 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      th:include="layout :: page">
+<body>
+
+<div th:fragment="content">
+  <div>
+    <form name="recipeSearch" method="post" th:object="${recipeSearch}">
+      <label for="inputId">Enter ID of recipe</label>
+      <input id="inputId" name="inputId" type="number" th:field="*{id}" required>
+      <input name="submit" type="submit" value="Search">
+    </form>
+  </div>
+  <hr>
+  <div th:unless="${#lists.isEmpty(recipe)}">
+    <h3>Recipe by ID <span th:text="${recipe.id}"></span></h3>
+    <p>This recipe has title: <span th:text="${recipe.title}"></span></p>
+  </div>
+</div>
+</body>
+</html>

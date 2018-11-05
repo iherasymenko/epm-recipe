@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      th:include="layout :: page">
+<body>
+
+<div th:fragment="content">
+  <div>
+    <h3>All recipes</h3>
+  </div>
+  <hr>
+  <table>
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="recipe : ${recipes}">
+      <td th:text="${recipe.id}"></td>
+      <td th:text="${recipe.title}"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

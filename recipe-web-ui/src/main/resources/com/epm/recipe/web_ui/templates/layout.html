@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      th:fragment="page">
+<head>
+  <meta charset="UTF-8">
+  <title>Recipes</title>
+</head>
+<body style="display: flex; flex-direction: row;">
+
+<aside style="width: 150px; margin-right: 50px">
+  <a th:href="@{recipes}">Find all recipes</a>
+  <br>
+  <a th:href="@{recipeById}">Find recipe by ID</a>
+  <br>
+  <a th:href="@{createRecipe}">Create new recipe</a>
+  <br>
+  <a th:href="@{updateRecipe}">Update existing recipe</a>
+  <br>
+  <a th:href="@{deleteRecipe}">Delete existing recipe</a>
+  <br>
+</aside>
+<main style="width: 450px">
+  <div th:include="this :: content"></div>
+</main>
+</body>
+</html>

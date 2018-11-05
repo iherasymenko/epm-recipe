@@ -1,0 +1,42 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      th:include="layout :: page">
+<body>
+
+<div th:fragment="content">
+  <div>
+    <h3>Update recipe</h3>
+  </div>
+  <hr>
+  <div>
+    <form name="recipeUpdate" method="post" th:object="${recipeUpdate}">
+      <label for="inputId">Enter ID of recipe</label>
+      <input id="inputId" name="inputId" type="number" th:field="*{id}" required><br>
+      <label for="inputTitle">Enter new title of recipe for updating</label>
+      <input id="inputTitle" name="inputTitle" type="text" th:field="*{title}" required>
+      <input name="submit" type="submit" value="Update">
+    </form>
+  </div>
+  <div>
+    <div>
+      <h3>All recipes</h3>
+    </div>
+    <hr>
+    <table>
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="recipe : ${recipes}">
+        <td th:text="${recipe.id}"></td>
+        <td th:text="${recipe.title}"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

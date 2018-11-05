@@ -1,6 +1,7 @@
 package com.epm.recipe.web_ui.config;
 
 import com.epm.recipe.service.RecipeService;
+import com.epm.recipe.web_ui.controller.AuxiliaryController;
 import com.epm.recipe.web_ui.controller.RecipeController;
 import com.epm.recipe.web_ui.controller.RestRecipeController;
 
@@ -24,4 +25,8 @@ public class WebUiConfiguration {
         return new RecipeController(recipeService);
     }
 
+    @Bean
+    AuxiliaryController auxiliaryController(RecipeService recipeService) {
+        return new AuxiliaryController(recipeService);
+    }
 }

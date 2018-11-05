@@ -1,0 +1,16 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      th:include="layout :: page">
+<body>
+
+<div th:fragment="content">
+  <div style="text-align: center">
+    <h1>Operation failed!</h1>
+    <hr>
+    <div>
+      <p th:text="${exception}"></p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
