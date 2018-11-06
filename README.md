@@ -11,6 +11,15 @@ To implement the service layer, I added 5 CRUD methods to the interface *RecipeS
 To work through the browser, use the class *RecipeController*. There is one more additional class *AuxiliaryController* for auxiliary purposes (control views for mapping *index*, *error* and *success*). 
 Start page mapping: **http://localhost/index**.
 
-To implement the work via the restful API, *RestRecipeController* is made with all the necessary HTTP-methods. Request mapping starts at **http://localhost/rest/**.
+To implement the work via the restful API, *RestRecipeController* is made with all the necessary HTTP-methods. 
+Request mapping starts at **http://localhost/api/**, and have few suffixes:
+
+* **recipe_of_the_day** - finds recipe of the day (GET method);
+* **recipe** - finds all recipes (GET method);
+* **recipe/{id}** - finds one recipe by id (GET method);
+* **recipe** - creates new recipe (POST method, which has new recipe title in its body);
+* **recipe/{id}** - updates existing recipe by id (PUT method, which has new recipe title in its body);
+* **recipe/{id}** - deletes existing recipe by id (DELETE method).
+
 Link to shared **Postman Collection**:
 https://www.getpostman.com/collections/d7c6e225e2b78c20ed78
