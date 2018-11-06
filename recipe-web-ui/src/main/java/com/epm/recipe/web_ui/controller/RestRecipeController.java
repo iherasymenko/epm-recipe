@@ -32,28 +32,31 @@ public class RestRecipeController {
         return recipeService.recipeOfTheDay();
     }
 
-    @GetMapping("recipes")
+    @GetMapping("recipe")
     public List<Recipe> findAllRecipes() {
         return recipeService.findAll();
     }
 
-    @GetMapping("recipeById")
-    public Recipe findOneById(@RequestParam Long id) {
+    @GetMapping("recipe/{id}")
+    public Recipe findOneById(@PathVariable Long id) {
         return recipeService.findOneById(id);
     }
 
-    @PostMapping("createRecipe")
+    @PostMapping("recipe")
     public void createRecipe(@RequestBody Recipe recipe) {
         recipeService.create(recipe);
     }
 
-    @PutMapping("updateRecipe")
-    public void updateRecipe(@RequestBody Recipe recipe) {
+    @PutMapping("recipe/{id}")
+    public void updateRecipe(@PathVariable Long id, @RequestBody Recipe recipe) {
+        recipe.setId(id);
         recipeService.update(recipe);
     }
 
-    @DeleteMapping("deleteRecipe")
-    public void deleteRecipe(@RequestBody Recipe recipe) {
+    @DeleteMapping("recipe/{id}")
+    public void deleteRecipe(@PathVariable Long id) {
+        Recipe recipe = new Recipe();
+        recipe.setId(id);
         recipeService.delete(recipe);
     }
 }
