@@ -7,26 +7,7 @@
   <div style="text-align: center">
     <h1>Operation successful!</h1>
   </div>
-  <div>
-    <div>
-      <h3>All recipes</h3>
-    </div>
-    <hr>
-    <table>
-      <thead>
-      <tr>
-        <th>Id</th>
-        <th>Title</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr th:each="recipe : ${recipes}">
-        <td th:text="${recipe.id}"></td>
-        <td th:text="${recipe.title}"></td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+  <div th:include="list :: recipes"></div>
 </div>
 </body>
 </html>
