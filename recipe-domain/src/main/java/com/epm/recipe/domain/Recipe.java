@@ -4,13 +4,28 @@ import java.util.Objects;
 
 public class Recipe {
 
-    public final String title;
-    public final long id;
+    private String title;
+    private long id;
 
     public Recipe(String title, long id) {
         this.title = Objects.requireNonNull(title, "title");
         this.id = id;
+    }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setTitle(String title) {
+        this.title = Objects.requireNonNull(title, "title");
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     @Override

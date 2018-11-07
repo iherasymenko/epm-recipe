@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>All recipes</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th> ID</th>
+        <th> Title</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${recipes.empty}">
+        <td colspan="2"> No Books Available</td>
+    </tr>
+    <tr th:each="recipe : ${recipes}">
+        <td><span th:text="${recipe.id}"> Title </span></td>
+        <td><span th:text="${recipe.title}"> Author </span></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
