@@ -1,0 +1,38 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="created_recipes_table" author="iliya_veselov">
+        <createTable tableName="recipes">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+            <column name="title" type="varchar(40)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="inserted_default_values_to_recipes" author="iliya_veselov">
+        <insert tableName="recipes">
+            <column name="title" type="varchar(40)" value="KitKat"/>
+        </insert>
+        <insert tableName="recipes">
+            <column name="title" type="varchar(40)" value="Lollipop"/>
+        </insert>
+        <insert tableName="recipes">
+            <column name="title" type="varchar(40)" value="Marshmallow"/>
+        </insert>
+        <insert tableName="recipes">
+            <column name="title" type="varchar(40)" value="Nougat"/>
+        </insert>
+        <insert tableName="recipes">
+            <column name="title" type="varchar(40)" value="Oreo"/>
+        </insert>
+    </changeSet>
+
+
+    <changeSet id="tag-1.0" author="iliya_veselov">
+        <tagDatabase tag="1.0"/>
+    </changeSet>
+
+</databaseChangeLog>

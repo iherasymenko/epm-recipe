@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="links">
+    <a th:href="@{/recipes}">View all recipes</a>|
+    <a th:href="@{/recipes/byId}">Get recipe by id</a>|
+    <a th:href="@{/recipes/create}">Create recipe</a>|
+    <a th:href="@{/recipes/update}">Update recipe</a>|
+    <a th:href="@{/recipes/delete}">Delete recipe</a><br>
+</div>
+</body>
+</html>

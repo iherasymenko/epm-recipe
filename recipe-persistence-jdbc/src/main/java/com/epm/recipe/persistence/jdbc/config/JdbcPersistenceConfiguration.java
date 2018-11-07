@@ -1,6 +1,7 @@
 package com.epm.recipe.persistence.jdbc.config;
 
 import com.epm.recipe.persistence.jdbc.JdbcRecipeRepository;
+import liquibase.integration.spring.SpringLiquibase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -20,6 +21,13 @@ public class JdbcPersistenceConfiguration {
     @Bean
     public JdbcRecipeRepository recipeRepository(JdbcTemplate jdbcTemplate){
         return new JdbcRecipeRepository(jdbcTemplate);
+    }
+    @Bean
+    public SpringLiquibase liquibase(DataSource dataSource){
+        SpringLiquibase liquibase = new SpringLiquibase();
+        liquibase.setChangeLog("classpath:db-changelog-master.xml");
+        liquibase.setDataSource(dataSource);
+        return liquibase;
     }
 
 }

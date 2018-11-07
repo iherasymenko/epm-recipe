@@ -34,7 +34,7 @@ public class DefaultRecipeService implements RecipeService {
         try {
             return recipeConverter.convertToViewDto(recipeRepository.findById(id));
         } catch (RecipeRepositoryException e) {
-            throw new NoRecipeWithSuchIdException(e);
+            throw new NoRecipeWithSuchIdException(e.getMessage(), e);
         }
     }
 
@@ -43,7 +43,7 @@ public class DefaultRecipeService implements RecipeService {
         try {
             return recipeConverter.convertToViewDtos(recipeRepository.findAll());
         } catch (RecipeRepositoryException e) {
-            throw new NoRecipesException(e);
+            throw new NoRecipesException(e.getMessage(), e);
         }
     }
 
@@ -57,7 +57,7 @@ public class DefaultRecipeService implements RecipeService {
         try {
             recipeRepository.update(recipeConverter.convertToRecipe(recipeDto));
         } catch (RecipeRepositoryException e) {
-            throw new NoRecipeWithSuchIdException(e);
+            throw new NoRecipeWithSuchIdException(e.getMessage(), e);
         }
         return recipeConverter.convertToViewDto(recipeDto);
     }
@@ -67,7 +67,7 @@ public class DefaultRecipeService implements RecipeService {
         try {
             recipeRepository.delete(id);
         } catch (RecipeRepositoryException e) {
-            throw new NoRecipeWithSuchIdException(e);
+            throw new NoRecipeWithSuchIdException(e.getMessage(), e);
         }
     }
 

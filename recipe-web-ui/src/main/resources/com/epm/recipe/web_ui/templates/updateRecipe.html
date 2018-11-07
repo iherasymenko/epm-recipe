@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>Recipes</title>
+</head>
+<body>
+<div th:insert="header :: links"></div>
+<h2>Update recipe</h2>
+<p th:text="${errorMessage}"></p>
+<form action="#" th:action="@{/recipes/update/}" th:object="${updateDto}" method="post">
+    <p>Recipe id: <input type="text" name="id"/></p>
+    <p>Recipe title: <input type="text" name="title"/></p>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
+</body>
+</html>

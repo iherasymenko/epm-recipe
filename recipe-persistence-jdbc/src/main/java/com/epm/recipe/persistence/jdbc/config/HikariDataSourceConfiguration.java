@@ -9,20 +9,22 @@ import org.springframework.context.annotation.Configuration;
 public class HikariDataSourceConfiguration {
     @Bean
     public HikariConfig hikariConfig() {
+
         HikariConfig config = new HikariConfig();
         config.setPoolName("hikariCp");
         config.setConnectionTestQuery("select 1");
-        config.setDataSourceClassName("org.mariadb.jdbc.MariaDbDataSource");
+        config.setDataSourceClassName("org.h2.jdbcx.JdbcDataSource");
         config.setMaximumPoolSize(10);
         config.setIdleTimeout(60000);
-        config.addDataSourceProperty("url", "jdbc:mariadb://localhost:3306/recipe?createDatabaseIfNotExist=true");
+        config.addDataSourceProperty("url", "jdbc:h2:mem:recipe;create=true");
         config.addDataSourceProperty("user", "root");
-        config.addDataSourceProperty("password", "pascal228");
+        config.addDataSourceProperty("password", "");
         return config;
     }
 
     @Bean
-    public HikariDataSource dataSource(HikariConfig config){
+    public HikariDataSource dataSource(HikariConfig config) {
         return new HikariDataSource(config);
     }
+
 }

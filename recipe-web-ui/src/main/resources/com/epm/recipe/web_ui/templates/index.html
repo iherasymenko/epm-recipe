@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>Index</title>
+</head>
+<body>
+<div th:insert="header :: links"></div>
+<h2>All recipes</h2>
+<p th:text="${errorMessage}"></p>
+<table>
+    <th:block th:each="recipe : ${recipes}">
+        <tr>
+            <td th:text="${'Id: ' + recipe.id}"></td>
+            <td th:text="${'Title: ' + recipe.title}"></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>
