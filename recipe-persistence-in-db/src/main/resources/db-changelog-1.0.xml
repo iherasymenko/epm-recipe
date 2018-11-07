@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet id="create_recipe" author="svitlana">
+        <createTable tableName="recipe">
+            <column autoIncrement="true" name="id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="title" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="insert_data_to_recipe" author="svitlana">
+        <insert tableName="recipe">
+            <column name="id" value="1"/>
+            <column name="title" value="recipe1"/>
+        </insert>
+        <insert tableName="recipe">
+            <column name="id" value="2"/>
+            <column name="title" value="recipe2"/>
+        </insert>
+        <insert tableName="recipe">
+            <column name="id" value="3"/>
+            <column name="title" value="recipe3"/>
+        </insert>
+        <insert tableName="recipe">
+            <column name="id" value="4"/>
+            <column name="title" value="recipe4"/>
+        </insert>
+        <insert tableName="recipe">
+            <column name="id" value="5"/>
+            <column name="title" value="recipe5"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="tag-1.0" author="svitlana">
+        <tagDatabase tag="1.0"/>
+    </changeSet>
+
+</databaseChangeLog>
