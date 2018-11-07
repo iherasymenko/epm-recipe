@@ -3,7 +3,6 @@ package com.epm.recipe.web_ui.config;
 import com.epm.recipe.service.RecipeService;
 import com.epm.recipe.web_ui.controller.RecipeController;
 import com.epm.recipe.web_ui.controller.RestRecipeController;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;

@@ -23,6 +23,8 @@ subprojects {
             mavenBom 'com.fasterxml.jackson:jackson-bom:2.9.7'
         }
         dependencies {
+            dependency group: 'mysql', name: 'mysql-connector-java', version: '5.1.4'
+            dependency group: 'org.springframework', name: 'spring-jdbc', version: '5.1.2.RELEASE'
             dependency 'org.thymeleaf:thymeleaf-spring5:3.0.11.RELEASE'
             dependency 'ch.qos.logback:logback-classic:1.2.3'
         }
