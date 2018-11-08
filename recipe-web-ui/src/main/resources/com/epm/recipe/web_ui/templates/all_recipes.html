@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/static/css/style.css}">
+    <title>Get all recipes</title>
+    <style>
+        /*the crutch*/
+        div {
+            margin: 20px 20px 20px 20px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div class="outer-div">
+    <h1>All available recipes</h1>
+    <div class="nested-div" th:each="recipe: ${recipes}">
+        <div>
+            <p class="min-font-size" th:text="${recipe.id}"></p>
+            <p class="min-font-size" th:text="${recipe.title}"></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

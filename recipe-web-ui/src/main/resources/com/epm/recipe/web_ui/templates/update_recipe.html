@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/static/css/style.css}">
+    <title>Update the recipe</title>
+</head>
+<body>
+<div class="main-div">
+    <h1>Update the recipe by id</h1>
+    <form action="#" th:action="@{/api/recipes_ui/update_recipe}" th:object="${recipe}" method="post">
+        <p class="min-font-size">Id:
+            <label>
+                <input type="text" pattern="\d*" th:value="${id}" th:name="id" th:id="id"/>
+            </label>
+        </p>
+        <p class="min-font-size">New title:
+            <label>
+                <input style="width: 400px; height: 70px;" type="text"
+                       th:value="${title}" th:name="title" th:id="title"/>
+            </label>
+        </p>
+        <p>
+            <label>
+                <input type="submit" value="Update the recipe"/>
+            </label>
+        </p>
+    </form>
+    <button><a th:href="@{/api}">Back to the welcome page</a></button>
+</div>
+</body>
+</html>

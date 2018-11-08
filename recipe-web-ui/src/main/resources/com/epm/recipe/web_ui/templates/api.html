@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}">
+    <title>Welcome page</title>
+</head>
+<body>
+<div class="main-div">
+    <h1><b>What do you want to do?</b></h1>
+    <p class="min-font-size">
+        <a th:href="@{/api/recipes_ui/recipe_of_the_day.html}">Get the recipe of the day</a>
+    </p>
+    <p class="min-font-size">
+        <a th:href="@{/api/recipes_ui/all_recipes.html}">Get all available recipes</a>
+    </p>
+    <p class="min-font-size">
+        <a th:href="@{/api/recipes_ui/get_recipe.html}">Get the recipe by id</a>
+    </p>
+    <p class="min-font-size">
+        <a th:href="@{/api/recipes_ui/add_recipe.html}">Add the recipe</a>
+    </p>
+    <p class="min-font-size">
+        <a th:href="@{/api/recipes_ui/update_recipe.html}">Update the recipe</a>
+    </p>
+    <p class="min-font-size">
+        <a th:href="@{/api/recipes_ui/delete_recipe.html}">Delete the recipe</a>
+    </p>
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/static/css/style.css}">
+    <title>Add the recipe</title>
+</head>
+<body>
+<div class="main-div">
+    <h1>Add the recipe</h1>
+    <form action="#" th:action="@{/api/recipes_ui/add_recipe}" th:object="${recipe}" method="post">
+        <p class="min-font-size">Title:
+            <label>
+                <input type="text" style="width: 400px;
+            height: 70px;" th:value="${title}" th:name="title" th:id="title"/>
+            </label>
+        </p>
+        <p>
+            <label>
+                <input type="submit" value="Add the recipe"/>
+            </label>
+        </p>
+        <p>
+            <label>
+                <input type="reset" value="Reset"/>
+            </label>
+        </p>
+    </form>
+    <button><a th:href="@{/api}">Back to the welcome page</a></button>
+</div>
+</body>
+</html>

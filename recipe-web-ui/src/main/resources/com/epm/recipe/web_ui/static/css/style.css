@@ -1,0 +1,77 @@
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    font-style: italic;
+    font-size: 45pt;
+    color: darkcyan;
+    text-align: -webkit-center;
+    text-align: -moz-center;
+    line-height: 40px;
+}
+
+p {
+    color: darkcyan;
+    text-align: -webkit-center;
+    text-align: -moz-center;
+}
+
+a {
+    color: darkcyan;
+    text-decoration: darkcyan;
+}
+
+.min-font-size {
+    font-size: 20pt;
+}
+
+.main-div {
+    background: whitesmoke;
+    border: dashed darkcyan;
+    margin: 100px 100px 100px 100px;
+}
+
+input[type=text] {
+    border: none;
+    border-bottom: 2px solid darkcyan;
+    width: 100px;
+    height: 70px;
+}
+
+input[type = submit], input[type = reset] {
+    font-size:25px;
+    font-style: italic;
+    width: 250px;
+    height: 70px;
+    background-color: darkcyan;
+    border: none;
+    text-decoration: none;
+    padding: 20px 20px;
+    margin: 10px 10px;
+    cursor: pointer;
+}
+
+.outer-div {
+    display: inline-block;
+    position: relative;
+    border: dashed darkcyan;
+    margin: 10px 10px 10px 10px;
+    padding: 20px 20px 20px 20px;
+}
+
+.nested-div {
+    width: 15%;
+    margin: 10px 10px 10px 10px;
+    background: silver;
+    overflow: hidden; /* clearfix */
+    size: 300px 300px;
+    border: darkcyan double;
+    outline-offset: 15px;
+}
+
+.nested-div:before {
+    content: "";
+    padding-top: 100%;
+    float: left;
+}

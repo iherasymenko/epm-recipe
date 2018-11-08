@@ -3,6 +3,8 @@ package com.epm.recipe.service.impl;
 import com.epm.recipe.domain.Recipe;
 import com.epm.recipe.persistence.RecipeRepository;
 import com.epm.recipe.service.RecipeService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Objects;
@@ -10,6 +12,7 @@ import java.util.Optional;
 
 public class DefaultRecipeService implements RecipeService {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(DefaultRecipeService.class);
     private final RecipeRepository recipeRepository;
 
     public DefaultRecipeService(RecipeRepository recipeRepository) {
@@ -17,20 +20,34 @@ public class DefaultRecipeService implements RecipeService {
     }
 
     @Override
-    public Recipe recipeOfTheDay() {
-        List<Recipe> all = recipeRepository.findAll();
-        if (all.isEmpty()) {
-            throw new IllegalStateException("No recipes at all");
-        }
-        return all.get(0);
+    public Optional<Recipe> recipeOfTheDay() {
+        LOGGER.info("Getting the recipe of the day...");
+        return recipeRepository.getRecipeById(1L);
+    }
+
+
+    @Override
+    public List<Recipe> findAllRecipes() {
+        return recipeRepository.findAllRecipes();
     }
 
     @Override
-    public Optional<Recipe> byId(long id) {
-        return recipeRepository.findAll()
-                .stream()
-                .filter(recipe -> recipe.id == id)
-                .findFirst();
+    public Optional<Recipe> getRecipeById(Long id) {
+        return recipeRepository.getRecipeById(id);
     }
 
+    @Override
+    public void insertRecipe(Recipe recipe) {
+        recipeRepository.insertRecipe(recipe);
+    }
+
+    @Override
+    public void updateRecipe(Long id, Recipe recipe) {
+        recipeRepository.updateRecipe(id, recipe);
+    }
+
+    @Override
+    public void deleteRecipe(Long id) {
+        recipeRepository.deleteRecipe(id);
+    }
 }

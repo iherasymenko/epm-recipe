@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/static/css/style.css}">
+    <title>Get the recipe</title>
+</head>
+<body>
+<div class="main-div">
+    <h1>Get the recipe by id</h1>
+    <form action="#" th:action="@{/api/recipes_ui/get_recipe}" method="post">
+        <p class="min-font-size">Id:
+            <label>
+                <input type="text" pattern="\d*" th:value="${id}" th:name="id" th:id="id"/>
+            </label>
+        </p>
+        <p>
+            <label>
+                <input type="submit" value="Get the recipe"/>
+            </label>
+        </p>
+    </form>
+    <button><a th:href="@{/api}">Back to the welcome page</a></button>
+</div>
+</body>
+</html>
