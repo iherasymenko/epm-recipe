@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add recipe</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Add recipe</h1>
+<form action="#" th:action="@{/add_recipe}" th:object="${recipe}" method="post">
+    <p>Title: <input type="text" th:field="*{title}" /></p>
+    <p><input type="submit" value="Submit" />
+    </p>
+</form>
+</body>
+</html>

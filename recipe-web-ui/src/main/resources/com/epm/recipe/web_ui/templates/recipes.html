@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>Hello</title>
+</head>
+<body>
+<tr th:each="recipe: ${recipes}">
+    <p th:text="${recipe.id} + ' ' +  ${recipe.title}"></p>
+</tr>
+</body>
+</html>

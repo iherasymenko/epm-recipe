@@ -6,7 +6,6 @@ import com.epm.recipe.service.RecipeService;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 public class DefaultRecipeService implements RecipeService {
 
@@ -26,11 +25,29 @@ public class DefaultRecipeService implements RecipeService {
     }
 
     @Override
-    public Optional<Recipe> byId(long id) {
-        return recipeRepository.findAll()
-                .stream()
-                .filter(recipe -> recipe.id == id)
-                .findFirst();
+    public Recipe byId(long id) {
+        return recipeRepository.find(id);
+    }
+
+    @Override
+    public List<Recipe> all() {
+        return recipeRepository.findAll();
+    }
+
+    @Override
+    public Recipe add(String title) {
+        Recipe recipe = new Recipe(0, title);
+        return recipeRepository.create(recipe);
+    }
+
+    @Override
+    public Recipe update(Recipe recipe) {
+        return recipeRepository.update(recipe);
+    }
+
+    @Override
+    public boolean delete(long id) {
+        return recipeRepository.delete(id);
     }
 
 }

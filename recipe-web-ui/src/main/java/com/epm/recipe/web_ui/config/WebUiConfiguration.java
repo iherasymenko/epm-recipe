@@ -23,5 +23,4 @@ public class WebUiConfiguration {
     RecipeController recipeController(RecipeService recipeService) {
         return new RecipeController(recipeService);
     }
-
 }

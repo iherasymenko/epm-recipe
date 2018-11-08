@@ -7,9 +7,10 @@ mainClassName = "$moduleName/com.epm.recipe.aggregator.Bootstrap"
 dependencies {
     implementation project(':recipe-web-ui')
     implementation project(':recipe-services')
-    implementation project(':recipe-persistence-in-memory')
+    implementation project(':recipe-persistence-mariaDB')
     implementation 'org.springframework:spring-webmvc'
     implementation 'org.eclipse.jetty:jetty-server'
     implementation 'org.eclipse.jetty:jetty-servlet'
     implementation 'ch.qos.logback:logback-classic'
+    implementation 'org.mariadb.jdbc:mariadb-java-client:2.1.2'
 }
