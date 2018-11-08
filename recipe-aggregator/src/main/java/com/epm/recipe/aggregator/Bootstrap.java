@@ -1,6 +1,6 @@
 package com.epm.recipe.aggregator;
 
-import com.epm.recipe.persistence.in_memory.config.InMemoryPersistenceConfiguration;
+import com.epm.recipe.persistence.in_db.config.DbPersistenceConfiguration;
 import com.epm.recipe.service.impl.config.ServicesConfiguration;
 import com.epm.recipe.web_ui.config.WebUiConfiguration;
 import org.eclipse.jetty.server.Server;
@@ -14,7 +14,7 @@ public class Bootstrap {
 
     public static void main(String[] args) throws Exception {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
-        context.register(InMemoryPersistenceConfiguration.class, ServicesConfiguration.class, WebUiConfiguration.class);
+        context.register(DbPersistenceConfiguration.class, ServicesConfiguration.class, WebUiConfiguration.class);
 
         Server server = new Server(80);
         ServletContextHandler servletContext = new ServletContextHandler();
