@@ -2,15 +2,14 @@ package com.epm.recipe.web_ui.controller;
 
 import com.epm.recipe.domain.Recipe;
 import com.epm.recipe.service.RecipeService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
+import java.net.URI;
+import java.sql.SQLException;
+import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("api")
@@ -28,8 +27,34 @@ public class RestRecipeController {
     }
 
     @GetMapping("recipe/{id}")
-    public Optional<Recipe> recipe(@PathVariable long id) {
-        return recipeService.byId(id);
+    public Recipe getRecipe(@PathVariable long id) throws SQLException {
+        Recipe recipe = recipeService.byIdInDB(id);
+
+        return recipe;
     }
 
+    @GetMapping("recipe/all")
+    public List<Recipe> gettAll() throws SQLException {
+        return recipeService.allInDB();
+    }
+
+    @PostMapping("recipe/")
+    public ResponseEntity<Recipe> postRecipe(@RequestBody Recipe recipe) {
+
+        long id = recipeService.Create(recipe);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(id).toUri();
+        return ResponseEntity.created(uri).build();
+
+    }
+
+    @PutMapping("recipe/{id}")
+    public void putRecipe(@RequestBody Recipe recipe, @PathVariable long id) {
+
+        recipeService.Update(recipe, id);
+    }
+
+    @DeleteMapping("recipe/{id}")
+    public void deleteRecipe(@PathVariable long id) {
+        recipeService.Delete(id);
+    }
 }

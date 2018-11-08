@@ -1,0 +1,5 @@
+
+dependencies{
+        compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.5.4'
+
+}

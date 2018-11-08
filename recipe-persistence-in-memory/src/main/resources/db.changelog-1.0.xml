@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet id="homework20" author="Ovechkin">
+
+        <createTable tableName="recipes">
+            <column name="id" type="INT(11)" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="recipe" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+
+
+
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

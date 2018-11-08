@@ -1,3 +1,20 @@
-dependencies {
+ dependencies {
     api project(':recipe-domain')
-}
+ }
+
+//apply plugin: 'java-library'
+//
+//repositories {
+//    jcenter()
+//}
+//
+//sourceCompatibility = 11
+//targetCompatibility = 11
+//
+//dependencies {
+//    api project(':recipe-domain')
+//    api 'org.apache.commons:commons-math3:3.6.1'
+//    implementation 'com.google.guava:guava:22.0'
+//    testImplementation 'junit:junit:4.12'
+//    implementation 'org.mariadb.jdbc:mariadb-java-client:2.1.2'
+//}

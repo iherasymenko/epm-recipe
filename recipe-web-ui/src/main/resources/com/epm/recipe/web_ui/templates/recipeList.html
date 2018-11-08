@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>List</title>
+</head>
+<body>
+
+<table border="0" cellpadding="20">
+    <caption><h2>List of recipes</h2></caption>
+    <tr>
+        <th>id</th>
+        <th>title</th>
+    </tr>
+    <tr th:each="r : ${recipeList}">
+        <td th:text="${r.id} ">
+        <td th:text=" ${r.title}"></td>
+</table>
+
+
+<form th:action="@{/put}" th:object="${recipe}" method="post">
+    <input name="id" type="text" th:value="${id}"/>
+    <input name="title" type="text" th:value="${title}"/>
+    <input value="update" type="submit"/>
+</form>
+
+<form th:action="@{/post}" th:object="${recipe}" method="post">
+    <input name="title" type="text" th:text="${title}"/>
+    <input value="add" type="submit"/>
+</form>
+
+<form th:action="@{/delete}" th:object="${recipe}" method="post">
+    <input name="id" type="text" th:value="${id}"/>
+    <input value="delete" type="submit"/>
+</form>
+
+</body>
+</html>
