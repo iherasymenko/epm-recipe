@@ -10,3 +10,12 @@
 
 https://www.oreilly.com/learning/how-to-design-a-restful-api-architecture-from-a-human-language-spec
 https://www.oreilly.com/ideas/how-a-restful-api-server-reacts-to-requests
+
+REST:
+- POST http://localhost:8080/api/recipe/{id}
+provide title
+- GET http://localhost:8080/api/recipe
+- GET http://localhost:8080/api/recipe/{id}
+- PUT http://localhost:8080/api/recipe/{id}
+provide new title
+- DELETE http://localhost:8080/api/recipe/{id}

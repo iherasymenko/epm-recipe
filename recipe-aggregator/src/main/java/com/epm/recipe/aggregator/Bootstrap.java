@@ -2,7 +2,7 @@ package com.epm.recipe.aggregator;
 
 import com.epm.recipe.persistence.in_memory.config.InMemoryPersistenceConfiguration;
 import com.epm.recipe.service.impl.config.ServicesConfiguration;
-import com.epm.recipe.web_ui.config.WebUiConfiguration;
+import com.epm.recipe.web_ui.config.*;
 
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
@@ -19,7 +19,7 @@ public class Bootstrap {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
         context.register(InMemoryPersistenceConfiguration.class, ServicesConfiguration.class, WebUiConfiguration.class);
 
-        Server server = new Server(80);
+        Server server = new Server(8080);
         ServletContextHandler servletContext = new ServletContextHandler();
         servletContext.setContextPath("/");
         servletContext.setResourceBase("");

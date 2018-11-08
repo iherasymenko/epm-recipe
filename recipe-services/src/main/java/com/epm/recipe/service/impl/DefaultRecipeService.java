@@ -4,6 +4,7 @@ import com.epm.recipe.domain.Recipe;
 import com.epm.recipe.persistence.RecipeRepository;
 import com.epm.recipe.service.RecipeService;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -26,11 +27,30 @@ public class DefaultRecipeService implements RecipeService {
     }
 
     @Override
-    public Optional<Recipe> byId(long id) {
-        return recipeRepository.findAll()
-                .stream()
-                .filter(recipe -> recipe.id == id)
-                .findFirst();
+    public Optional<Recipe> readRecipe(long id) {
+        return recipeRepository.read(id);
+    }
+
+    @Override
+    public void createRecipe(String title) {
+        recipeRepository.createRecipe(title);
+    }
+
+    @Override
+    public void updateRecipe(long id, String title) {
+        recipeRepository.updateRecipe(id, title);
+    }
+
+    @Override
+    public void deleteRecipe(long id) {
+        recipeRepository.deleteRecipe(id);
+    }
+
+    @Override
+    public List<Recipe> readAll() {
+        List<Recipe> all = recipeRepository.findAll();
+        all.sort(Comparator.comparingLong(value -> value.id));
+        return all;
     }
 
 }

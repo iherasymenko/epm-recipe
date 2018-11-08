@@ -3,17 +3,14 @@ package com.epm.recipe.web_ui.controller;
 import com.epm.recipe.domain.Recipe;
 import com.epm.recipe.service.RecipeService;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("api")
+@RequestMapping("api/recipe")
 public class RestRecipeController {
 
     private final RecipeService recipeService;
@@ -27,9 +24,28 @@ public class RestRecipeController {
         return recipeService.recipeOfTheDay();
     }
 
-    @GetMapping("recipe/{id}")
-    public Optional<Recipe> recipe(@PathVariable long id) {
-        return recipeService.byId(id);
+    @PostMapping("/")
+    public void createRecipe(@RequestParam(value="title") String title) {
+        recipeService.createRecipe(title);
     }
 
+    @GetMapping("/{id}")
+    public Optional<Recipe> readRecipe(@PathVariable long id) {
+        return recipeService.readRecipe(id);
+    }
+
+    @PutMapping("/{id}")
+    public void updateRecipe(@PathVariable long id, @RequestParam(value="title") String title) {
+        recipeService.updateRecipe(id, title);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteRecipe(@PathVariable long id) {
+        recipeService.deleteRecipe(id);
+    }
+
+    @GetMapping("/")
+    public List<Recipe> readAllRecipes() {
+        return recipeService.readAll();
+    }
 }

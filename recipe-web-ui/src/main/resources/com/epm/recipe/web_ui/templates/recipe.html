@@ -1,11 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <title>Hello</title>
 </head>
 <body>
-<p th:text="${recipe.id}"></p>
-<p th:text="${recipe.title}"></p>
+<div>
+
+    <h2>Recipes</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <div  class="recipeslist" th:unless="${#lists.isEmpty(recipes)}">
+            <tr th:each="recipe : ${recipes}">
+                <td th:text="${recipe.id}"></td>
+                <td th:text="${recipe.title}"></td>
+                <td>
+                <form action="#" th:action="@{/{id}(id=${recipe.id})}" method="post">
+                        <input name="title" type="text"  th:value="${recipe.title}">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                </form><!--update-->
+                </td>
+                <td>
+                    <form action="#" th:action="@{/{id}(id=${recipe.id})}" method="get">
+                        <!--<input type="hidden" id="bookingRequestIdAttach" name="id" value="${recipe.id}" />-->
+                        <button type="submit" class="btn btn-primary">Remove</button>
+                    </form>
+                </td><!--remove-->
+            </tr>
+        </div>
+        <tr>
+            <form action="#" th:action="@{/}" method="post">
+                <td colspan="3">
+                    <input name="title" type="text" placeholder="New">
+                </td>
+                <!--<td></td>-->
+                <!--<td></td>-->
+                <td>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </td><!--add-->
+            </form>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

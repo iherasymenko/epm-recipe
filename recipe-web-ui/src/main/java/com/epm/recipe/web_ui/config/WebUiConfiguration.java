@@ -19,6 +19,7 @@ public class WebUiConfiguration {
         return new RestRecipeController(recipeService);
     }
 
+
     @Bean
     RecipeController recipeController(RecipeService recipeService) {
         return new RecipeController(recipeService);

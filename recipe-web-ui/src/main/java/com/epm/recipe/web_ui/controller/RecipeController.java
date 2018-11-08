@@ -4,7 +4,7 @@ import com.epm.recipe.service.RecipeService;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Objects;
 
@@ -18,9 +18,27 @@ public class RecipeController {
     }
 
     @GetMapping("/")
-    public String recipeOfTheDay(Model model) {
-        model.addAttribute("recipe", recipeService.recipeOfTheDay());
+    public String recipeList(Model model) {
+        model.addAttribute("recipes", recipeService.readAll());
         return "recipe";
+    }
+
+    @PostMapping("/")
+    public String createRecipe(@RequestParam(value="title") String title) {
+        recipeService.createRecipe(title);
+        return "redirect:/";
+    }
+
+    @PostMapping("/{id}")
+    public String updateRecipe(@PathVariable long id, @RequestParam(value="title") String title) {
+        recipeService.updateRecipe(id, title);
+        return "redirect:/";
+    }
+
+    @GetMapping("/{id}")
+    public String deleteRecipe(@PathVariable long id) {
+        recipeService.deleteRecipe(id);
+        return "redirect:/";
     }
 
 }
