@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      th:fragment="menubar">
+<head>
+  <meta charset="UTF-8">
+  <title>Recipes</title>
+</head>
+<body style="display: flex; flex-direction: row;">
+
+<aside style="width: 150px; margin-right: 50px">
+  <p>Choose menu item</p>
+  <ol>
+    <li><a th:href="@{recipes}">Find all</a></li>
+    <br>
+    <li><a th:href="@{recipeById}">Find by ID</a></li>
+    <br>
+    <li><a th:href="@{createRecipe}">Create new element</a></li>
+    <br>
+    <li><a th:href="@{updateRecipe}">Update</a></li>
+    <br>
+    <li><a th:href="@{deleteRecipe}">Delete</a></li>
+    <br>
+  </ol>
+</aside>
+<main style="width: 450px">
+  <div th:insert="this :: content"></div>
+</main>
+</body>
+</html>
