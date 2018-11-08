@@ -2,6 +2,7 @@ package com.epm.recipe.web_ui.config;
 
 import com.epm.recipe.service.RecipeService;
 import com.epm.recipe.web_ui.controller.RecipeController;
+import com.epm.recipe.web_ui.controller.RecipeUiController;
 import com.epm.recipe.web_ui.controller.RestRecipeController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,6 +22,11 @@ public class WebUiConfiguration {
     @Bean
     RecipeController recipeController(RecipeService recipeService) {
         return new RecipeController(recipeService);
+    }
+
+    @Bean
+    RecipeUiController recipeUiController() {
+        return new RecipeUiController();
     }
 
 }

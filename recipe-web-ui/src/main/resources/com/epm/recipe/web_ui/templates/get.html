@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Request</title>
+</head>
+<body>
+
+<form action="#" th:action="@{${pattern}}" method="GET">
+    <h1 th:text="${operation}"></h1>
+    <p>
+        <label>id</label>
+        <input name="id" type="text" placeholder="input positive integer"/>
+    </p>
+    <p><input type="submit" value="Submit"/></p>
+</form>
+</body>
+</html>

@@ -5,11 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Objects;
 
 @Controller
+@RequestMapping("recipe")
 public class RecipeController {
 
     private final RecipeService recipeService;
@@ -21,6 +23,12 @@ public class RecipeController {
     @GetMapping("/")
     public String recipeOfTheDay(Model model) {
         model.addAttribute("recipe", recipeService.recipeOfTheDay());
+        return "recipe";
+    }
+
+    @GetMapping("/get")
+    public String get(@RequestParam("id") int id, Model model) {
+        model.addAttribute("recipe", recipeService.byId(id).orElse(null));
         return "recipe";
     }
 
