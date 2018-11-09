@@ -1,0 +1,10 @@
+include ':recipe-domain'
+include ':recipe-persistence'
+include ':recipe-services-api'
+include ':recipe-services'
+include ':recipe-persistence-in-memory'
+include ':recipe-persistence-db'
+include ':recipe-web-ui'
+include ':recipe-aggregator'
+include 'recipe-persistence-db'
+

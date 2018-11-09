@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>New Recipe</title>
+</head>
+<body>
+<form action="#" th:action="@{/create}" th:object="${recipe}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <table>
+        <tr>
+            <td>Title: </td>
+            <td>
+                <input type="text" th:field="*{title}" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Save  " />
+            </td>
+        </tr>
+    </table>
+</form>
+<a href="/list">
+    <button>Escape</button>
+</a>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>List</title>
+</head>
+<body>
+<td>
+    <a href="/go_create">
+        <button>new recipe</button>
+    </a>
+    <table>
+        <tbody>
+        <tr th:each="recipe : ${recipes}">
+            <td th:text="${recipe.id}"/>
+            <td th:text="${recipe.title}"/>
+            <td><a th:href="'/go_update/' + ${recipe.id}">
+                <button>update</button>
+            </a></td>
+            <td><a th:href="'/delete/' + ${recipe.id}">
+                <button>delete</button>
+            </a></td>
+        </tr>
+        </tbody>
+    </table>
+</td>
+</body>
+</html>
