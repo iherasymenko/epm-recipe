@@ -1,5 +1,6 @@
 dependencies {
     implementation project(':recipe-services-api')
+    implementation project(':recipe-persistence-in-memory')
     implementation 'org.springframework:spring-context'
     implementation 'org.springframework:spring-webmvc'
     implementation 'org.springframework:spring-web'

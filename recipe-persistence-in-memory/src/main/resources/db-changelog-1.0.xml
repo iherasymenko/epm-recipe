@@ -1,0 +1,19 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="recipe" author="dolgozvjaga_sergey">
+        <createTable tableName="recipes">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+            </column>
+            <column name="title" type="varchar(30)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="tag-1.0" author="dolgozvjaga_sergey">
+        <tagDatabase tag="1.0"/>
+    </changeSet>
+
+</databaseChangeLog>

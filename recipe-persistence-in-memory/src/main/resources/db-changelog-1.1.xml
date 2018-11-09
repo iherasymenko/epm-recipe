@@ -1,0 +1,22 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="recipe_examples" author="dolgozvjaga_sergey">
+        <insert tableName="recipes">
+            <column name="title" type="varchar(30)" value="Legolaz"/>
+        </insert>
+        <insert tableName="recipes">
+            <column name="title" type="varchar(30)" value="Frodo"/>
+        </insert>
+        <insert tableName="recipes">
+            <column name="title" type="varchar(30)" value="Gendalf"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="tag-1.0" author="dolgozvjaga_sergey">
+        <tagDatabase tag="1.0"/>
+    </changeSet>
+
+</databaseChangeLog>

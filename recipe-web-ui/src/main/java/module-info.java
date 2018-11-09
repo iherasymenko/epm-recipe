@@ -1,5 +1,6 @@
 open module recipe.web.ui {
     requires recipe.services.api;
+    requires recipe.persistence.in_memory;
     requires spring.context;
     requires spring.web;
     requires spring.webmvc;

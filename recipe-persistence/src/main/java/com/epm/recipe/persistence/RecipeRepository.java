@@ -6,4 +6,8 @@ import java.util.List;
 
 public interface RecipeRepository {
     List<Recipe> findAll();
+    Recipe findById(long id);
+    void create(Recipe recipe);
+    void delete(long id);
+    void update(Recipe recipe);
 }

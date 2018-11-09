@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="links">
+        All commands are here:
+        <a th:href="@{/recipes/byId}">Get recipe by id</a>|
+        <a th:href="@{/recipes}">Show all recipes</a>|
+        <a th:href="@{/recipes/create}">Recipe create</a>|
+        <a th:href="@{/recipes/delete}">Recipe delete</a>|
+        <a th:href="@{/recipes/update}">Recipe update</a><br>
+    </div>
+</body>
+</html>
+
+
