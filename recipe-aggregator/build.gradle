@@ -7,6 +7,7 @@ mainClassName = "$moduleName/com.epm.recipe.aggregator.Bootstrap"
 dependencies {
     implementation project(':recipe-web-ui')
     implementation project(':recipe-services')
+    implementation project(':recipe-persistence')
     implementation project(':recipe-persistence-in-memory')
     implementation 'org.springframework:spring-webmvc'
     implementation 'org.eclipse.jetty:jetty-server'

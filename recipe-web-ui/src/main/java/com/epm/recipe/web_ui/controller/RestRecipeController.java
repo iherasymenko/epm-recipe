@@ -24,7 +24,7 @@ public class RestRecipeController {
         return recipeService.recipeOfTheDay();
     }
 
-    @PostMapping("/")
+    @PostMapping()
     public void createRecipe(@RequestParam(value="title") String title) {
         recipeService.createRecipe(title);
     }
@@ -44,7 +44,7 @@ public class RestRecipeController {
         recipeService.deleteRecipe(id);
     }
 
-    @GetMapping("/")
+    @GetMapping()
     public List<Recipe> readAllRecipes() {
         return recipeService.readAll();
     }
