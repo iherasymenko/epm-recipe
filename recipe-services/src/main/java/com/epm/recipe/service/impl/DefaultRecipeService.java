@@ -20,7 +20,7 @@ public class DefaultRecipeService implements RecipeService {
     public Recipe recipeOfTheDay() {
         List<Recipe> all = recipeRepository.findAll();
         if (all.isEmpty()) {
-            throw new IllegalStateException("No recipes at all");
+            all.add(new Recipe("<Error: the receipt is absent>", -1));
         }
         return all.get(0);
     }
@@ -33,4 +33,23 @@ public class DefaultRecipeService implements RecipeService {
                 .findFirst();
     }
 
+    @Override
+    public boolean createRecipe(Recipe recipe) {
+        return recipeRepository.createRecipe(recipe);
+    }
+
+    @Override
+    public List<Recipe> findAll() {
+        return recipeRepository.findAll();
+    }
+
+    @Override
+    public boolean updateRecipe(Recipe recipe) {
+        return recipeRepository.updateRecipe(recipe);
+    }
+
+    @Override
+    public boolean deleteRecipe(long id) {
+        return recipeRepository.deleteRecipe(id);
+    }
 }
