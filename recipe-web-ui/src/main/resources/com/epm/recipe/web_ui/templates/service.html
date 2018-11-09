@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Service</title>
+</head>
+<body>
+        <h1><em>Service</em></h1>
+
+        <form action="/addRecipe" method="post">
+            <input type="number" name="id" placeholder="Id" required />
+            <input type="text" name="title" placeholder="Recipe" required />
+            <button type="submit">Add recipe</button>
+        </form>
+        <br>
+        <form action="/updateRecipe" method="post">
+            <input type="number" name="id" placeholder="Id of updating recipe" required />
+            <input type="text" name="title" placeholder="Input new recipe name" required />
+            <button type="submit">Update recipe</button>
+        </form>
+        <br>
+        <form action="/deleteRecipe" method="post">
+            <input type="number" name="id" placeholder="Delete recipe with id" required />
+            <button type="submit">Delete recipe by id</button>
+        </form>
+        <br>
+        <form action="/showRecipes" method="post">
+            <button type="submit">Show all recipes</button>
+        </form>
+
+</body>
+</html>

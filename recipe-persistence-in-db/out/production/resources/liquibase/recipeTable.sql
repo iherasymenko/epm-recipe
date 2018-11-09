@@ -1,0 +1,1 @@
+create table recipes(id INT primary key, title varchar(100));

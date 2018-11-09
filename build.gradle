@@ -3,6 +3,9 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.6.RELEASE'
 }
 
+
+
+
 subprojects {
 
     apply plugin: 'java-library'
@@ -27,5 +30,6 @@ subprojects {
             dependency 'ch.qos.logback:logback-classic:1.2.3'
         }
     }
+    
 
 }

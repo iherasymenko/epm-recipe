@@ -7,5 +7,5 @@ module recipe.aggregator {
     requires jetty.servlet;
     requires recipe.web.ui;
     requires recipe.services.impl;
-    requires recipe.persistence.in_memory;
+    requires recipe.persistence.in_db;
 }

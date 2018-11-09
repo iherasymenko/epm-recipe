@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>All recipes</title>
+</head>
+<body>
+
+    <h2>List of recipes</h2>
+
+    <div th:each="recipe : ${recipes}">
+      <br>  <strong><em>ID:</em></strong> <span th:text="${recipe.id}"></span>
+        <strong><em>| Recipe:</em></strong>  <span th:text="${recipe.title}"></span>
+    </div>
+    <br>
+    <br>
+    <form action="/servicePage" method="post">
+        <button type="submit">Back to service</button>
+    </form>
+</body>
+</html>

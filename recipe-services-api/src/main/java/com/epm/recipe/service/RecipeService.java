@@ -2,9 +2,15 @@ package com.epm.recipe.service;
 
 import com.epm.recipe.domain.Recipe;
 
-import java.util.Optional;
+import java.util.ArrayList;
 
 public interface RecipeService {
-    Recipe recipeOfTheDay();
-    Optional<Recipe> byId(long id);
+
+    ArrayList<Recipe> getAllRecipes();
+
+    Recipe addRecipe(Integer id, String title);
+
+    Recipe deleteRecipe(Integer id);
+
+    Recipe updateRecipe(Integer id, String title);
 }
