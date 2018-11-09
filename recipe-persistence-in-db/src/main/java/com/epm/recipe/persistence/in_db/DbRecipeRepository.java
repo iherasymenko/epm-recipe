@@ -4,13 +4,9 @@ import com.epm.recipe.domain.Recipe;
 import com.epm.recipe.persistence.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.ResultSetExtractor;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 @Repository
@@ -32,29 +28,12 @@ public class DbRecipeRepository implements RecipeRepository {
         jdbcTemplate.batchUpdate("INSERT INTO recipes(id, title) VALUES (?,?)", initialData);
     }
 
-    private static final class RecipeRowMapper implements RowMapper<Recipe> {
-        @Override
-        public Recipe mapRow(ResultSet rs, int rowNum) throws SQLException {
-            return new Recipe(
-                    rs.getString("title"),
-                    rs.getInt("id")
-            );
-        }
-    }
-
-    private static final class RecipeResultSetExtractor implements ResultSetExtractor<Recipe> {
-        @Override
-        public Recipe extractData(ResultSet rs) throws SQLException {
-            return new Recipe(
-                    rs.getString("title"),
-                    rs.getInt("id")
-            );
-        }
-    }
-
     @Override
     public List<Recipe> findAll() {
-        return jdbcTemplate.query("SELECT * FROM recipes", new RecipeRowMapper());
+        return jdbcTemplate.query("SELECT * FROM recipes", (rs, rowNum) -> new Recipe(
+                rs.getString("title"),
+                rs.getInt("id")
+        ));
     }
 
     @Override
