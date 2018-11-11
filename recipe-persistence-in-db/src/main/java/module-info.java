@@ -3,6 +3,7 @@ module recipe.persistence.in_db {
     requires recipe.persistence;
     requires recipe.exception;
     requires spring.context;
+    requires spring.jdbc;
     requires spring.beans;
     requires java.sql;
     opens com.epm.recipe.persistence.in_db to spring.core;
