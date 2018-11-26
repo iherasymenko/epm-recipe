@@ -1,6 +1,9 @@
 dependencies {
     implementation project(':recipe-persistence')
+    implementation project(':recipe-persistence-in-memory')
+    implementation project(':recipe-persistence-in-mariadb')
     implementation project(':recipe-services-api')
     implementation project(':recipe-domain')
     implementation 'org.springframework:spring-context'
+    implementation 'org.springframework:spring-beans'
 }

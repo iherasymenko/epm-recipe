@@ -5,3 +5,5 @@ include ':recipe-services'
 include ':recipe-persistence-in-memory'
 include ':recipe-web-ui'
 include ':recipe-aggregator'
+include 'recipe-persistence-in-mariadb'
+

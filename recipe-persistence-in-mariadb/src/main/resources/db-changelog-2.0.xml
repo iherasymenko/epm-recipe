@@ -1,0 +1,50 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet id="filling of recipe" author="krasnoshapka">
+        <insert tableName="recipes">
+            <column name="id" value="1"/>
+            <column name="title" value="Hashbrowns"/>
+        </insert>
+        <insert tableName="recipes">
+            <column name="id" value="2"/>
+            <column name="title" value="Cupcake"/>
+        </insert>
+        <insert tableName="recipes">
+            <column name="id" value="3"/>
+            <column name="title" value="Eclair"/>
+        </insert>
+        <insert tableName="recipes">
+            <column name="id" value="4"/>
+            <column name="title" value="Froyo"/>
+        </insert>
+        <insert tableName="recipes">
+            <column name="id" value="5"/>
+            <column name="title" value="Gingerbread"/>
+        </insert>
+        <insert tableName="recipes">
+            <column name="id" value="6"/>
+            <column name="title" value="Honeycomb"/>
+        </insert>
+        <insert tableName="recipes">
+            <column name="id" value="7"/>
+            <column name="title" value="Ice Cream Sandwich"/>
+        </insert>
+        <insert tableName="recipes">
+            <column name="id" value="8"/>
+            <column name="title" value="Jelly Bean"/>
+        </insert>
+        <insert tableName="recipes">
+            <column name="id" value="9"/>
+            <column name="title" value="KitKat"/>
+        </insert>
+
+    </changeSet>
+
+    <changeSet id="tag-2.0" author="krasnoshapka">
+        <tagDatabase tag="2.0" />
+    </changeSet>
+</databaseChangeLog>

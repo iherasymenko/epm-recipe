@@ -3,10 +3,8 @@ package com.epm.recipe.service.impl;
 import com.epm.recipe.domain.Recipe;
 import com.epm.recipe.persistence.RecipeRepository;
 import com.epm.recipe.service.RecipeService;
-
-import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
+import java.util.List;
 
 public class DefaultRecipeService implements RecipeService {
 
@@ -19,18 +17,31 @@ public class DefaultRecipeService implements RecipeService {
     @Override
     public Recipe recipeOfTheDay() {
         List<Recipe> all = recipeRepository.findAll();
-        if (all.isEmpty()) {
-            throw new IllegalStateException("No recipes at all");
-        }
-        return all.get(0);
+        return all.get(1);
     }
 
     @Override
-    public Optional<Recipe> byId(long id) {
-        return recipeRepository.findAll()
-                .stream()
-                .filter(recipe -> recipe.id == id)
-                .findFirst();
+    public List<Recipe> findAll() {
+        return recipeRepository.findAll();
     }
 
+    @Override
+    public Recipe findRecipeById(long id) {
+        return recipeRepository.getById(id);
+    }
+
+    @Override
+    public void createRecipe(Recipe recipe) {
+        recipeRepository.insert(recipe);
+    }
+
+    @Override
+    public void updateRecipe(Recipe recipe) {
+        recipeRepository.update(recipe);
+    }
+
+    @Override
+    public void deleteRecipe(Recipe recipe) {
+        recipeRepository.delete(recipe.getId());
+    }
 }

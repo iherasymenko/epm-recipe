@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      th:fragment="commands">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipes</title>
+</head>
+<body style="display: flex; flex-direction: column;">
+<aside style="width: 1000px; margin-right: 100px">
+    <p>Make your choice!</p>
+    <table align="center">
+        <tr>
+            <td> <a th:href="@{recipes}">Look all recipes</a> </td>
+
+            <td><a th:href="@{oneRecipe}">Look recipe by id</a></td>
+
+            <td><a th:href="@{updateRecipe}">Change some recipe</a></td>
+
+            <td><a th:href="@{createRecipe}">Create new recipe</a></td>
+
+            <td><a th:href="@{removeRecipe}">Remove recipe</a></td>
+        </tr>
+    </table>
+</aside>
+<main style="width: 700px">
+    <div th:insert="this::content"></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      th:insert="header :: commands">
+<body>
+
+<div th:fragment="content">
+  <div>
+    <h3>Create recipe</h3>
+  </div>
+  <div>
+    <form name="createRecipe" th:action="@{#}" method="post" th:object="${createRecipe}">
+      <label for="recipe">Title</label>
+      <input name="recipe" id="recipe" type="text" th:value="*{title}" required>
+      <input name="submit" type="submit" value="create"/>
+    </form>
+  </div>
+</div>
+</body>
+</html>

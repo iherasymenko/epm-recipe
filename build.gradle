@@ -24,7 +24,12 @@ subprojects {
         }
         dependencies {
             dependency 'org.thymeleaf:thymeleaf-spring5:3.0.11.RELEASE'
+            dependency 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5:3.0.4.RELEASE'
             dependency 'ch.qos.logback:logback-classic:1.2.3'
+            dependency 'org.springframework.security:spring-security-config:5.1.1.RELEASE'
+            dependency 'org.springframework.security:spring-security-core:5.1.1.RELEASE'
+            dependency 'org.springframework.security:spring-security-web:5.1.1.RELEASE'
+            dependency 'javax.servlet:javax.servlet-api:3.1.0'
         }
     }
 

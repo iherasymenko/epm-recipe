@@ -1,0 +1,24 @@
+configurations {
+    liquibase
+}
+
+
+dependencies {
+    implementation project(':recipe-persistence')
+    implementation project(':recipe-domain')
+    implementation 'org.springframework:spring-context'
+    implementation 'org.springframework:spring-jdbc'
+    implementation 'org.mariadb.jdbc:mariadb-java-client:2.2.6'
+    liquibase 'org.liquibase:liquibase-core:3.2.2'
+    liquibase 'org.mariadb.jdbc:mariadb-java-client:2.2.6'
+}
+
+
+task createDb(type: JavaExec) {
+    group = "Liquibase"
+    classpath configurations.liquibase
+    main = "liquibase.integration.commandline.Main"
+    args "--defaultsFile=src/main/resources/db.properties"
+    args "--changeLogFile=src/main/resources/db-changelog-master.xml"
+    args "update"
+}
