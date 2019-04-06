@@ -11,5 +11,6 @@ dependencies {
     implementation 'org.springframework:spring-webmvc'
     implementation 'org.eclipse.jetty:jetty-server'
     implementation 'org.eclipse.jetty:jetty-servlet'
+    implementation 'org.eclipse.jetty:jetty-util'
     implementation 'ch.qos.logback:logback-classic'
 }

@@ -3,8 +3,8 @@ module recipe.aggregator {
     requires spring.context;
     requires spring.web;
     requires spring.webmvc;
-    requires jetty.server;
-    requires jetty.servlet;
+    requires org.eclipse.jetty.server;
+    requires org.eclipse.jetty.servlet;
     requires recipe.web.ui;
     requires recipe.services.impl;
     requires recipe.persistence.in_memory;
