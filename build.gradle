@@ -15,9 +15,9 @@ subprojects {
     }
 
     dependencies {
-        implementation enforcedPlatform('org.springframework:spring-framework-bom:5.1.6.RELEASE')
-        implementation enforcedPlatform('org.eclipse.jetty:jetty-bom:9.4.15.v20190215')
-        implementation enforcedPlatform('com.fasterxml.jackson:jackson-bom:2.9.8')
+        implementation enforcedPlatform('org.springframework:spring-framework-bom:5.1.8.RELEASE')
+        implementation enforcedPlatform('org.eclipse.jetty:jetty-bom:9.4.19.v20190610')
+        implementation enforcedPlatform('com.fasterxml.jackson:jackson-bom:2.9.9')
         implementation enforcedPlatform('org.thymeleaf:thymeleaf-spring5:3.0.11.RELEASE')
         implementation enforcedPlatform('ch.qos.logback:logback-classic:1.2.3')
     }
