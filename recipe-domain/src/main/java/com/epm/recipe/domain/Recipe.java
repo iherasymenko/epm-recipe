@@ -10,7 +10,6 @@ public class Recipe {
     public Recipe(String title, long id) {
         this.title = Objects.requireNonNull(title, "title");
         this.id = id;
-
     }
 
     @Override

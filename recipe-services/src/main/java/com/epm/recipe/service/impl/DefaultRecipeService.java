@@ -17,6 +17,11 @@ public class DefaultRecipeService implements RecipeService {
     }
 
     @Override
+    public List<Recipe> all() {
+        return recipeRepository.findAll();
+    }
+
+    @Override
     public Recipe recipeOfTheDay() {
         List<Recipe> all = recipeRepository.findAll();
         if (all.isEmpty()) {

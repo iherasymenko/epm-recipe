@@ -23,4 +23,10 @@ public class RecipeController {
         return "recipe";
     }
 
+    @GetMapping("all")
+    public String all(Model model) {
+        model.addAttribute("recipes", recipeService.all());
+        return "all";
+    }
+
 }
