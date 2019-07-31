@@ -25,7 +25,7 @@ public class RecipeController {
 
     @GetMapping("all")
     public String all(Model model) {
-        model.addAttribute("recipes", recipeService.all());
+        model.addAttribute("recipes", recipeService.getAll());
         return "all";
     }
 

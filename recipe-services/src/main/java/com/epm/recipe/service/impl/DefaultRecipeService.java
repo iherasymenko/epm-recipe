@@ -17,7 +17,7 @@ public class DefaultRecipeService implements RecipeService {
     }
 
     @Override
-    public List<Recipe> all() {
+    public List<Recipe> getAll() {
         return recipeRepository.findAll();
     }
 
@@ -31,11 +31,8 @@ public class DefaultRecipeService implements RecipeService {
     }
 
     @Override
-    public Optional<Recipe> byId(long id) {
-        return recipeRepository.findAll()
-                .stream()
-                .filter(recipe -> recipe.id == id)
-                .findFirst();
+    public Optional<Recipe> getById(long id) {
+        return Optional.of(recipeRepository.findById(id));
     }
 
 }

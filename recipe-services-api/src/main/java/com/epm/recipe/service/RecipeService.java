@@ -6,7 +6,9 @@ import java.util.List;
 import java.util.Optional;
 
 public interface RecipeService {
-    List<Recipe> all();
+    List<Recipe> getAll();
+
     Recipe recipeOfTheDay();
-    Optional<Recipe> byId(long id);
+
+    Optional<Recipe> getById(long id);
 }

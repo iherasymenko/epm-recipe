@@ -8,7 +8,7 @@ dependencies {
     implementation project(':recipe-web-ui')
     implementation project(':recipe-web-api')
     implementation project(':recipe-services')
-    implementation project(':recipe-persistence-in-memory')
+    implementation project(':recipe-persistence-jdbc')
     implementation 'org.springframework:spring-webmvc'
     implementation 'org.eclipse.jetty:jetty-server'
     implementation 'org.eclipse.jetty:jetty-servlet'

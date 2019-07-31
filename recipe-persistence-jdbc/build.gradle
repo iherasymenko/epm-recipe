@@ -1,0 +1,6 @@
+dependencies {
+    implementation project(':recipe-persistence')
+    implementation project(':recipe-domain')
+    implementation 'org.springframework:spring-context'
+    implementation 'org.mariadb.jdbc:mariadb-java-client:2.1.2'
+}
