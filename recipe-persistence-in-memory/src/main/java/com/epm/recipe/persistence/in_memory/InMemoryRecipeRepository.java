@@ -13,4 +13,9 @@ public class InMemoryRecipeRepository implements RecipeRepository {
                 new Recipe("Sandwich", 20)
         );
     }
+
+    @Override
+    public Recipe findById(long id) {
+        return new Recipe("Default recipe", id);
+    }
 }
