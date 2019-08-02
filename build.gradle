@@ -20,6 +20,7 @@ subprojects {
         implementation enforcedPlatform('com.fasterxml.jackson:jackson-bom:2.9.9')
         implementation enforcedPlatform('org.thymeleaf:thymeleaf-spring5:3.0.11.RELEASE')
         implementation enforcedPlatform('ch.qos.logback:logback-classic:1.2.3')
+        implementation enforcedPlatform('org.mariadb.jdbc:mariadb-java-client:2.4.2')
     }
 
 }
