@@ -1,0 +1,1 @@
+For use it, please, input password in properties file db.properties
