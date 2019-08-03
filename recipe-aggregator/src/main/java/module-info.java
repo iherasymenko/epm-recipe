@@ -8,5 +8,10 @@ module recipe.aggregator {
     requires recipe.web.ui;
     requires recipe.web.api;
     requires recipe.services.impl;
-    requires recipe.persistence.in_memory;
+//    requires recipe.persistence.in_memory;
+    requires recipe.persistence.jdbc;
+    requires spring.beans;
+    requires spring.core;
+    opens com.epm.recipe.aggregator to spring.core, spring.beans;
+    opens com.epm.recipe.aggregator.config to spring.beans, spring.core;
 }

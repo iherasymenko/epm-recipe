@@ -8,10 +8,14 @@ dependencies {
     implementation project(':recipe-web-ui')
     implementation project(':recipe-web-api')
     implementation project(':recipe-services')
-    implementation project(':recipe-persistence-in-memory')
+//    implementation project(':recipe-persistence-in-memory')
+    implementation project(':recipe-persistence-jdbc')
     implementation 'org.springframework:spring-webmvc'
     implementation 'org.eclipse.jetty:jetty-server'
     implementation 'org.eclipse.jetty:jetty-servlet'
     implementation 'org.eclipse.jetty:jetty-util'
     implementation 'ch.qos.logback:logback-classic'
+    implementation 'org.springframework:spring-beans'
+    implementation 'org.springframework:spring-context'
+    implementation 'org.springframework:spring-core'
 }
