@@ -2,9 +2,9 @@ package com.epm.recipe.persistence.jdbc;
 
 import com.epm.recipe.domain.Recipe;
 import com.epm.recipe.persistence.RecipeRepository;
-import com.epm.recipe.persistence.jdbc.connectionPool.ConnectionProducer;
 import com.epm.recipe.persistence.jdbc.exception.JdbcPersistenceException;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,10 +14,10 @@ import java.util.List;
 
 public class JdbcPersistenceRecipeRepository implements RecipeRepository {
 
-    private final ConnectionProducer connectionProducer;
+    private final DataSource dataSource;
 
-    public JdbcPersistenceRecipeRepository(ConnectionProducer connectionProducer) {
-        this.connectionProducer = connectionProducer;
+    public JdbcPersistenceRecipeRepository(DataSource dataSource) {
+        this.dataSource = dataSource;
     }
 
     private Recipe getRecipeFromResultSet(ResultSet resultSet) throws SQLException {
@@ -29,7 +29,7 @@ public class JdbcPersistenceRecipeRepository implements RecipeRepository {
     @Override
     public List<Recipe> findAll() {
         final String query = "SELECT * FROM recipes";
-        try (Connection connection = connectionProducer.getConnection();
+        try (Connection connection = dataSource.getConnection();
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(query)){
             List<Recipe> recipes = new ArrayList<>();

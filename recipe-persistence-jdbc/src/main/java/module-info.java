@@ -2,6 +2,8 @@ module recipe.persistence.jdbc {
     requires recipe.domain;
     requires recipe.persistence;
     requires spring.context;
+    requires spring.core;
+    requires spring.beans;
     requires java.sql;
     requires com.zaxxer.hikari;
     opens com.epm.recipe.persistence.jdbc to spring.core;
