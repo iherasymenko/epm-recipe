@@ -3,4 +3,5 @@ dependencies {
     implementation project(':recipe-domain')
     implementation 'org.springframework:spring-context'
     implementation 'ch.qos.logback:logback-classic'
+    implementation 'org.springframework:spring-jdbc'
 }
