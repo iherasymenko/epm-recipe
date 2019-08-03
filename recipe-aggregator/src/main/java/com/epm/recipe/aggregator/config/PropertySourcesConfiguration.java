@@ -11,7 +11,7 @@ public class PropertySourcesConfiguration {
     @Bean
     public static PropertySourcesPlaceholderConfigurer placeholder(){
         PropertySourcesPlaceholderConfigurer placeholderConfigurer = new PropertySourcesPlaceholderConfigurer();
-        FileSystemResource fileSystemResource = new FileSystemResource("D:/epam/epm-recipe/recipe-aggregator/build/distributions/recipe-aggregator/recipe-aggregator/conf/db.properties.txt");
+        FileSystemResource fileSystemResource = new FileSystemResource(System.getenv("recipe_aggregator_conf") + "db.properties");
         placeholderConfigurer.setLocation(fileSystemResource);
         placeholderConfigurer.setIgnoreResourceNotFound(false);
         return placeholderConfigurer;
