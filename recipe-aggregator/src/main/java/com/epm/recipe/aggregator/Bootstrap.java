@@ -18,8 +18,8 @@ public class Bootstrap {
     public static void main(String[] args) throws Exception {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
 
-        // TODO: Add AggregatorConfiguration when issue will be resolved
-        context.register(JdbcRecipeRepositoryConfiguration.class, ServicesConfiguration.class, WebUiConfiguration.class, WebApiConfiguration.class);
+        context.register(AggregatorConfiguration.class, JdbcRecipeRepositoryConfiguration.class,
+                ServicesConfiguration.class, WebUiConfiguration.class, WebApiConfiguration.class);
 
         Server server = new Server(80);
         ServletContextHandler servletContext = new ServletContextHandler();

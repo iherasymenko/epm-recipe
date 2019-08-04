@@ -5,14 +5,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.FileSystemResource;
 
+import java.io.IOException;
+
 @Configuration
 public class AggregatorConfiguration {
 
-    // TODO: Can't find place where I can start application and put to this place app.properties
     @Bean
-    public static PropertyPlaceholderConfigurer properties() {
-        PropertyPlaceholderConfigurer ppc
-                = new PropertyPlaceholderConfigurer();
+    public static PropertyPlaceholderConfigurer properties() throws IOException {
+        PropertyPlaceholderConfigurer ppc = new PropertyPlaceholderConfigurer();
         ppc.setLocations(new FileSystemResource("app.properties"));
         ppc.setIgnoreUnresolvablePlaceholders(true);
         return ppc;

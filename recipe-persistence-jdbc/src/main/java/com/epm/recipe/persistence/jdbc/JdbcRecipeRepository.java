@@ -18,9 +18,7 @@ public class JdbcRecipeRepository implements RecipeRepository {
 
     @Override
     public List<Recipe> findAll() {
-        String SELECT_ALL_RECIPES = "Select * from recipes";
-        return this.jdbcTemplate.query(SELECT_ALL_RECIPES, (rs, __) -> {
-            return new Recipe(rs.getString("title"), rs.getLong("id"));
-        });
+        return this.jdbcTemplate.query("Select * from recipes",
+                (rs, __) -> new Recipe(rs.getString("title"), rs.getLong("id")));
     }
 }

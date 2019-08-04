@@ -14,4 +14,5 @@ module recipe.aggregator {
     requires spring.core;
     opens com.epm.recipe.aggregator to spring.core, spring.beans;
     opens com.epm.recipe.aggregator.config to spring.beans, spring.core;
+    exports com.epm.recipe.aggregator.config;
 }
