@@ -2,6 +2,7 @@ module recipe.persistence.db_mysql {
     requires recipe.domain;
     requires recipe.persistence;
     requires spring.context;
+    requires spring.core;
     requires spring.beans;
     requires spring.jdbc;
     requires java.sql;

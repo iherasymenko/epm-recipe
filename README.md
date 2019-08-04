@@ -6,4 +6,6 @@
 
 * Truly modular
 
+## Notes
+To run application from *.bat file of zip-archive project put mysql.properties file to bin folder. "bin" folder - root.
  

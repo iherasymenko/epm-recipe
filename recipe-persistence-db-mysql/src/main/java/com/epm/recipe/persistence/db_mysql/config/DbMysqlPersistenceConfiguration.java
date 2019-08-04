@@ -4,16 +4,15 @@ import com.epm.recipe.persistence.RecipeRepository;
 import com.epm.recipe.persistence.db_mysql.DbMysqlRecipeRepository;
 import com.mysql.cj.jdbc.MysqlDataSource;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
 
 @Configuration
-@PropertySource("classpath:mysql.properties")
 public class DbMysqlPersistenceConfiguration {
 
     @Value("${db.url}")
@@ -24,8 +23,10 @@ public class DbMysqlPersistenceConfiguration {
     private String password;
 
     @Bean
-    public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
-        return new PropertySourcesPlaceholderConfigurer();
+    public static PropertyPlaceholderConfigurer propertyPlaceholderConfigurer() {
+        PropertyPlaceholderConfigurer propertyPlaceholderConfigurer = new PropertyPlaceholderConfigurer();
+        propertyPlaceholderConfigurer.setLocation(new FileSystemResource("mysql.properties"));
+        return propertyPlaceholderConfigurer;
     }
 
     @Bean
