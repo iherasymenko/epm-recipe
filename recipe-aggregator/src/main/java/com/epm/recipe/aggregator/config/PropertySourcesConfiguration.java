@@ -11,7 +11,8 @@ public class PropertySourcesConfiguration {
     @Bean
     public static PropertySourcesPlaceholderConfigurer placeholder(){
         PropertySourcesPlaceholderConfigurer placeholderConfigurer = new PropertySourcesPlaceholderConfigurer();
-        FileSystemResource fileSystemResource = new FileSystemResource(System.getenv("recipe_aggregator_conf") + "db.properties");
+        String pathToCurrentDir = System.getProperty("user.dir");
+        FileSystemResource fileSystemResource = new FileSystemResource(pathToCurrentDir + "/conf/db.properties");
         placeholderConfigurer.setLocation(fileSystemResource);
         placeholderConfigurer.setIgnoreResourceNotFound(false);
         return placeholderConfigurer;
