@@ -1,5 +1,6 @@
 package com.epm.recipe.aggregator;
 
+import com.epm.recipe.aggregator.config.Configurer;
 import com.epm.recipe.persistence.database.config.DatabasePersistenceConfiguration;
 import com.epm.recipe.service.impl.config.ServicesConfiguration;
 import com.epm.recipe.web_api.config.WebApiConfiguration;
@@ -16,7 +17,7 @@ public class Bootstrap {
 
     public static void main(String[] args) throws Exception {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
-        context.register(DatabasePersistenceConfiguration.class, ServicesConfiguration.class, WebUiConfiguration.class, WebApiConfiguration.class);
+        context.register(Configurer.class, DatabasePersistenceConfiguration.class, ServicesConfiguration.class, WebUiConfiguration.class, WebApiConfiguration.class);
 
         Server server = new Server(80);
         ServletContextHandler servletContext = new ServletContextHandler();
