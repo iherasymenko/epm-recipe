@@ -15,5 +15,4 @@ dependencies {
     implementation 'org.eclipse.jetty:jetty-util'
     implementation 'ch.qos.logback:logback-classic'
     implementation project(':recipe-persistence-jdbc')
-    implementation project(':recipe-properties')
 }
