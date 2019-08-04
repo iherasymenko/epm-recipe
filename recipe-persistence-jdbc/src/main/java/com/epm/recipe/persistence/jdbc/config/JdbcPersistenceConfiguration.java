@@ -30,7 +30,7 @@ public class JdbcPersistenceConfiguration {
     }
 
     @Bean
-    public RecipeRepository recipeRepository(DataSource ds) throws SQLException {
+    public RecipeRepository recipeRepository(DataSource ds) {
         return new JdbcRecipeRepository(ds);
     }
 }

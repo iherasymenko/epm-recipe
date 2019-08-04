@@ -2,6 +2,7 @@ dependencies {
     implementation project(':recipe-persistence')
     implementation project(':recipe-domain')
     implementation 'org.springframework:spring-context'
+    implementation 'org.springframework:spring-jdbc'
     implementation 'ch.qos.logback:logback-classic'
     implementation 'org.slf4j:slf4j-api'
     implementation 'org.mariadb.jdbc:mariadb-java-client'
