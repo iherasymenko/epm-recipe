@@ -3,10 +3,13 @@ module recipe.aggregator {
     requires spring.context;
     requires spring.web;
     requires spring.webmvc;
+    requires spring.core;
     requires org.eclipse.jetty.server;
     requires org.eclipse.jetty.servlet;
     requires recipe.web.ui;
     requires recipe.web.api;
     requires recipe.services.impl;
     requires recipe.persistence.jdbc;
+    opens com.epm.recipe.aggregator.config to spring.core;
+    exports com.epm.recipe.aggregator.config;
 }
