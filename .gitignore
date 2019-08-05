@@ -2,5 +2,4 @@
 build
 .idea
 *.iml
-out/
-target/
+out
