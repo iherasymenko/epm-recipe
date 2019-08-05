@@ -13,7 +13,6 @@ public class PropertyPlaceholderConfigurerConfig {
         PropertyPlaceholderConfigurer ppc = new PropertyPlaceholderConfigurer();
         ppc.setLocations(new FileSystemResource("conf/application.properties"));
         ppc.setSearchSystemEnvironment(true);
-        ppc.setIgnoreUnresolvablePlaceholders(true);
         return ppc;
     }
 }

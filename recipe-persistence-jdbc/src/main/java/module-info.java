@@ -1,8 +1,7 @@
-module recipe.persistence.idbc {
-    requires java.sql;
-    requires slf4j.api;
+module recipe.persistence.jdbc {
     requires recipe.domain;
     requires recipe.persistence;
+    requires java.sql;
     requires org.mariadb.jdbc;
     requires spring.context;
     requires spring.beans;
