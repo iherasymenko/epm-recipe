@@ -35,7 +35,7 @@ public class JdbcPersistenceConfiguration {
     }
 
     @Bean
-    public RecipeRepository recipeRepository(DataSource ds, JdbcOperations jdbcOperations) {
-        return new JdbcRecipeRepository(ds, jdbcOperations);
+    public RecipeRepository recipeRepository(JdbcOperations jdbcOperations) {
+        return new JdbcRecipeRepository(jdbcOperations);
     }
 }

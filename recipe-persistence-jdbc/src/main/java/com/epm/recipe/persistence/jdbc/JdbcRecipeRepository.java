@@ -9,11 +9,9 @@ import java.util.List;
 
 public class JdbcRecipeRepository implements RecipeRepository {
 
-    private final DataSource ds;
     private final JdbcOperations jdbcTemplate;
 
-    public JdbcRecipeRepository(DataSource ds, JdbcOperations jdbcTemplate) {
-        this.ds = ds;
+    public JdbcRecipeRepository(JdbcOperations jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
