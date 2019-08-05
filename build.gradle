@@ -21,8 +21,7 @@ subprojects {
         implementation enforcedPlatform('org.thymeleaf:thymeleaf-spring5:3.0.11.RELEASE')
         implementation enforcedPlatform('ch.qos.logback:logback-classic:1.2.3')
         implementation enforcedPlatform('org.apache.commons:commons-lang3:3.8')
-        compile group: 'commons-dbcp', name: 'commons-dbcp', version: '1.2.2'
-        compile group: 'org.springframework', name: 'spring-jdbc', version: '2.0.6'
+        implementation enforcedPlatform('org.mariadb.jdbc:mariadb-java-client:2.4.2')
     }
 
 }
