@@ -7,6 +7,8 @@ import org.mariadb.jdbc.MariaDbDataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.core.JdbcOperations;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
@@ -18,9 +20,7 @@ public class JdbcPersistenceConfiguration {
     public DataSource dataSource(@Value("${db.url}") String url,
                                  @Value("${db.user}") String user,
                                  @Value("${db.password}") String password
-                                 ) throws SQLException
-
-    {
+    ) throws SQLException {
         MariaDbDataSource ds = new MariaDbDataSource();
         ds.setUrl(url);
         ds.setUser(user);
@@ -30,7 +30,12 @@ public class JdbcPersistenceConfiguration {
     }
 
     @Bean
-    public RecipeRepository recipeRepository(DataSource ds) {
-        return new JdbcRecipeRepository(ds);
+    public JdbcTemplate jdbcTemplate(DataSource dataSource) {
+        return new JdbcTemplate(dataSource);
+    }
+
+    @Bean
+    public RecipeRepository recipeRepository(DataSource ds, JdbcOperations jdbcOperations) {
+        return new JdbcRecipeRepository(ds, jdbcOperations);
     }
 }
