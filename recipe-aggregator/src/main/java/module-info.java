@@ -11,6 +11,7 @@ module recipe.aggregator {
     requires recipe.persistence.in_memory;
     requires recipe.persistence.jdbc;
     requires spring.core;
+    requires spring.beans;
     opens com.epm.recipe.aggregator.config to spring.core;
     exports com.epm.recipe.aggregator.config;
 }
