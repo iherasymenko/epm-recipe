@@ -11,10 +11,7 @@ public class PropertySourcesConfiguration {
     @Bean
     public static PropertyPlaceholderConfigurer placeholder(){
         PropertyPlaceholderConfigurer placeholderConfigurer = new PropertyPlaceholderConfigurer();
-        FileSystemResource fileSystemResource = new FileSystemResource("conf/db.properties");
-        placeholderConfigurer.setLocation(fileSystemResource);
-        placeholderConfigurer.setIgnoreResourceNotFound(false);
-        placeholderConfigurer.setSearchSystemEnvironment(true);
+        placeholderConfigurer.setLocation(new FileSystemResource("conf/db.properties"));
         return placeholderConfigurer;
     }
 
