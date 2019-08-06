@@ -1,18 +1,19 @@
 package com.epm.recipe.persistence.jdbc;
 
-import com.epm.recipe.domain.Recipe;
-import com.epm.recipe.persistence.RecipeRepository;
-import org.springframework.jdbc.core.JdbcTemplate;
+import java.util.List;
+
+import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
+import com.epm.recipe.domain.Recipe;
+import com.epm.recipe.persistence.RecipeRepository;
 
 @Component
 public class JdbcRecipeRepository implements RecipeRepository {
 
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcOperations jdbcTemplate;
 
-    public JdbcRecipeRepository(JdbcTemplate jdbcTemplate) {
+    public JdbcRecipeRepository(JdbcOperations jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
