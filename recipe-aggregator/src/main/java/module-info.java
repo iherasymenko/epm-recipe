@@ -3,7 +3,6 @@ module recipe.aggregator {
     requires spring.beans;
     requires spring.core;
     requires spring.context;
-    requires spring.aop;
     requires spring.web;
     requires spring.webmvc;
     requires org.eclipse.jetty.server;
