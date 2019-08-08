@@ -3,6 +3,7 @@ plugins {
 }
 
 mainClassName = "$moduleName/com.epm.recipe.aggregator.Bootstrap"
+distTar.enabled = false
 
 dependencies {
     implementation project(':recipe-web-ui')
