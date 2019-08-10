@@ -3,5 +3,12 @@ dependencies {
     implementation project(':recipe-persistence')
     implementation 'org.springframework:spring-context'
     implementation 'org.springframework:spring-jdbc'
-    implementation 'org.mariadb.jdbc:mariadb-java-client'
+    implementation 'mysql:mysql-connector-java'
+//    implementation 'org.apache.commons:commons-dbcp2' {
+//        exclude group: 'org.apache.commons-logging', module: 'commons-logging'
+//    }
+
+    compile('org.apache.commons:commons-dbcp2') {
+        exclude module: 'commons-logging'
+    }
 }

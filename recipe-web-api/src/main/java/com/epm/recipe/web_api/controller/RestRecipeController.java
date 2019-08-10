@@ -3,11 +3,9 @@ package com.epm.recipe.web_api.controller;
 import com.epm.recipe.domain.Recipe;
 import com.epm.recipe.service.RecipeService;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -27,8 +25,13 @@ public class RestRecipeController {
     }
 
     @GetMapping("recipe/{id}")
-    public Optional<Recipe> recipe(@PathVariable long id) {
+    public Recipe recipe(@PathVariable int id) {
         return recipeService.byId(id);
+    }
+
+    @GetMapping("restaurant/{restaurant}")
+    public List<Recipe> insert(@PathVariable String restaurant) {
+        return recipeService.getByRestaurant(restaurant);
     }
 
 }

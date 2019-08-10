@@ -1,12 +1,12 @@
 package com.epm.recipe.service.impl;
 
 import com.epm.recipe.domain.Recipe;
+import com.epm.recipe.domain.Restaurant;
 import com.epm.recipe.persistence.RecipeRepository;
 import com.epm.recipe.service.RecipeService;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 public class DefaultRecipeService implements RecipeService {
 
@@ -31,11 +31,14 @@ public class DefaultRecipeService implements RecipeService {
     }
 
     @Override
-    public Optional<Recipe> byId(long id) {
-        return recipeRepository.findAll()
-                .stream()
-                .filter(recipe -> recipe.id == id)
-                .findFirst();
+    public Recipe byId(int id) {
+        return recipeRepository.getById(id);
+    }
+
+    @Override
+    public List<Recipe> getByRestaurant(String restaurantName) {
+        Restaurant restaurant = new Restaurant(restaurantName);
+        return recipeRepository.getByRestaurant(restaurant);
     }
 
 }

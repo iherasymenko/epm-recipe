@@ -5,12 +5,13 @@
     <title>Hello</title>
 </head>
 <body>
-
+<h3 th:if="${restaurant != null}" th:text="${restaurant}"></h3>
 <table>
     <th:block th:each="recipe : ${recipes}">
         <tr>
             <td th:text="${recipe.id}">Id</td>
             <td th:text="${recipe.title}">Title</td>
+            <td th:text="${recipe.price}">Title</td>
         </tr>
     </th:block>
 </table>

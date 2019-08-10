@@ -10,8 +10,11 @@ module recipe.aggregator {
     requires recipe.web.ui;
     requires recipe.web.api;
     requires recipe.services.impl;
-    requires recipe.persistence.in_memory;
     requires recipe.persistence.jdbc;
+    requires logback.core;
+    requires logback.classic;
+    requires slf4j.api;
+
     opens com.epm.recipe.aggregator.config to
             spring.core,
             spring.beans,
