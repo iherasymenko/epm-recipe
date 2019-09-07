@@ -1,4 +1,4 @@
-package com.epm.recipe.domain;
+package com.epm.recipe.domain.recipe;
 
 import java.util.Objects;
 

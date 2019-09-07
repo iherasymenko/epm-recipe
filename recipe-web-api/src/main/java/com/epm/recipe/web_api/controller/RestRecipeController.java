@@ -1,6 +1,7 @@
 package com.epm.recipe.web_api.controller;
 
-import com.epm.recipe.domain.Recipe;
+import com.epm.recipe.domain.recipe.Recipe;
+import com.epm.recipe.domain.user.UserIdentity;
 import com.epm.recipe.service.RecipeService;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,12 +23,12 @@ public class RestRecipeController {
     }
 
     @GetMapping("recipe_of_the_day")
-    public Recipe recipeOfTheDay() {
+    public Recipe recipeOfTheDay(UserIdentity ignored) {
         return recipeService.recipeOfTheDay();
     }
 
     @GetMapping("recipe/{id}")
-    public Optional<Recipe> recipe(@PathVariable long id) {
+    public Optional<Recipe> recipe(@PathVariable long id, UserIdentity ignored) {
         return recipeService.byId(id);
     }
 

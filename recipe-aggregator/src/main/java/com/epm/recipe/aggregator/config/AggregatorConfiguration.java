@@ -11,8 +11,8 @@ public class AggregatorConfiguration {
     @Bean
     public static PropertyPlaceholderConfigurer propertyPlaceholderConfigurer() {
         PropertyPlaceholderConfigurer configurer = new PropertyPlaceholderConfigurer();
-        configurer.setLocation(new FileSystemResource("conf/application.properties"));
-        configurer.setIgnoreResourceNotFound(true);
+        configurer.setLocations(new FileSystemResource("conf/db.properties"),
+                new FileSystemResource("conf/security.properties"));
         return configurer;
     }
 

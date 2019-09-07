@@ -1,0 +1,4 @@
+dependencies {
+    api project(':recipe-domain')
+    implementation 'org.springframework:spring-webmvc'
+}

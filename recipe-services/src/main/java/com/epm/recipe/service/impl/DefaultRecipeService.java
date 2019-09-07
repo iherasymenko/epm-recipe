@@ -1,6 +1,6 @@
 package com.epm.recipe.service.impl;
 
-import com.epm.recipe.domain.Recipe;
+import com.epm.recipe.domain.recipe.Recipe;
 import com.epm.recipe.persistence.RecipeRepository;
 import com.epm.recipe.service.RecipeService;
 

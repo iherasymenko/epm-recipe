@@ -12,6 +12,8 @@ module recipe.aggregator {
     requires recipe.services.impl;
     requires recipe.persistence.in_memory;
     requires recipe.persistence.jdbc;
+    requires recipe.web.advice;
+    requires recipe.web.security;
     opens com.epm.recipe.aggregator.config to
             spring.core,
             spring.beans,

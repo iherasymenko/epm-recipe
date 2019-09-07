@@ -1,6 +1,7 @@
 dependencies {
-    implementation project(':recipe-persistence')
-    implementation project(':recipe-services-api')
-    implementation project(':recipe-domain')
+    api project(':recipe-persistence')
+    api project(':recipe-services-api')
+    api project(':recipe-domain')
     implementation 'org.springframework:spring-context'
+    implementation 'com.auth0:java-jwt'
 }

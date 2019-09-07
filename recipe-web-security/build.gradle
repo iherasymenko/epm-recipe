@@ -1,0 +1,6 @@
+dependencies {
+    api project(":recipe-domain")
+    api project(":recipe-services-api")
+    implementation 'org.springframework:spring-webmvc'
+    implementation 'com.auth0:java-jwt'
+}

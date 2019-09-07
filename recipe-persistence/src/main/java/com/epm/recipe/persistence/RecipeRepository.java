@@ -1,6 +1,6 @@
 package com.epm.recipe.persistence;
 
-import com.epm.recipe.domain.Recipe;
+import com.epm.recipe.domain.recipe.Recipe;
 
 import java.util.List;
 

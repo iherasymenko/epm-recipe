@@ -1,7 +1,9 @@
 package com.epm.recipe.aggregator;
 
+import com.epm.recipe.advice.config.WebAdviceConfiguration;
 import com.epm.recipe.aggregator.config.AggregatorConfiguration;
 import com.epm.recipe.persistence.jdbc.config.JdbcPersistenceConfiguration;
+import com.epm.recipe.security.config.WebSecurityConfiguration;
 import com.epm.recipe.service.impl.config.ServicesConfiguration;
 import com.epm.recipe.web_api.config.WebApiConfiguration;
 import com.epm.recipe.web_ui.config.WebUiConfiguration;
@@ -18,11 +20,12 @@ public class Bootstrap {
     public static void main(String[] args) throws Exception {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
         context.register(AggregatorConfiguration.class);
-        //context.register(InMemoryPersistenceConfiguration.class);
         context.register(JdbcPersistenceConfiguration.class);
         context.register(ServicesConfiguration.class);
         context.register(WebUiConfiguration.class);
         context.register(WebApiConfiguration.class);
+        context.register(WebAdviceConfiguration.class);
+        context.register(WebSecurityConfiguration.class);
 
         Server server = new Server(80);
         ServletContextHandler servletContext = new ServletContextHandler();

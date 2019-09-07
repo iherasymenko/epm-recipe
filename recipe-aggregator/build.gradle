@@ -11,9 +11,12 @@ dependencies {
     implementation project(':recipe-services')
     implementation project(':recipe-persistence-in-memory')
     implementation project(':recipe-persistence-jdbc')
+    implementation project(':recipe-web-advice')
+    implementation project(':recipe-web-security')
     implementation 'org.springframework:spring-webmvc'
     implementation 'org.eclipse.jetty:jetty-server'
     implementation 'org.eclipse.jetty:jetty-servlet'
     implementation 'org.eclipse.jetty:jetty-util'
     implementation 'ch.qos.logback:logback-classic'
+
 }
